@@ -1,0 +1,21 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "npm run preview"
+healthcheckPath = "/"
+healthcheckTimeout = 100
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[deploy.envs]
+VITE_APP_TITLE = "Casamiento Gonzalo & Sofía"
+VITE_WEDDING_DATE = "2025-10-19T18:00:00"
+VITE_WEDDING_LOCATION = "Salón de Fiestas Elegante"
+VITE_WEDDING_ADDRESS = "Av. Principal 1234, Buenos Aires"
+VITE_WEDDING_LAT = "-34.6037"
+VITE_WEDDING_LNG = "-58.3816"
+VITE_RSVP_ENDPOINT = "https://api.example.com/rsvp"
+VITE_CONTACT_PHONE = "+54 11 1234-5678"
+VITE_CONTACT_EMAIL = "casamiento@email.com"
+VITE_CONTACT_WHATSAPP = "+54 11 1234-5678" 
