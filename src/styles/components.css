@@ -43,6 +43,103 @@
   object-fit: contain;
 }
 
+/* Fecha estilizada */
+.styled-date-section {
+  margin-top: 2rem;
+}
+
+.date-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.date-left, .date-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.date-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.day-name, .time {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  color: var(--color-purple);
+  font-weight: 500;
+  text-align: center;
+}
+
+.month-abbr {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-purple);
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.day-number {
+  font-family: var(--font-script);
+  font-size: 4rem;
+  color: var(--color-purple);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.decorative-line {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.decorative-line .line {
+  flex: 1;
+  height: 1px;
+  background-color: var(--color-teal-medium);
+  opacity: 0.7;
+}
+
+.decorative-line .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-teal-medium);
+  opacity: 0.8;
+}
+
+/* Responsive para la fecha */
+@media (max-width: 768px) {
+  .date-display {
+    gap: 1rem;
+  }
+  
+  .day-number {
+    font-size: 3rem;
+  }
+  
+  .day-name, .time {
+    font-size: 1rem;
+  }
+  
+  .month-abbr {
+    font-size: 0.9rem;
+  }
+}
+
 .header::before {
   content: '';
   position: absolute;

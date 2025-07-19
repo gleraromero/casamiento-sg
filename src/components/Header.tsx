@@ -42,14 +42,38 @@ const Header: React.FC = () => {
               </h2>
             </div>
             
-            {/* Fecha */}
-            <div className="date-section pb-4">
-              <p className="font-sans text-teal mb-1" style={{ fontSize: '1.1rem' }}>
-                Sábado 4 de Octubre de 2025
-              </p>
-              <p className="font-sans text-teal" style={{ fontSize: '1.1rem' }}>
-                18:30 hs
-              </p>
+            {/* Fecha estilizada */}
+            <div className="styled-date-section pb-4">
+              <div className="date-display">
+                <div className="date-left">
+                  <div className="decorative-line">
+                    <div className="line"></div>
+                    <div className="dot"></div>
+                  </div>
+                  <span className="day-name">Sábado</span>
+                  <div className="decorative-line">
+                    <div className="line"></div>
+                    <div className="dot"></div>
+                  </div>
+                </div>
+                
+                <div className="date-center">
+                  <div className="month-abbr">OCT</div>
+                  <div className="day-number">04</div>
+                </div>
+                
+                <div className="date-right">
+                  <div className="decorative-line">
+                    <div className="dot"></div>
+                    <div className="line"></div>
+                  </div>
+                  <span className="time">18:30</span>
+                  <div className="decorative-line">
+                    <div className="dot"></div>
+                    <div className="line"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </Col>
         </Row>
