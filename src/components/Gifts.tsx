@@ -57,12 +57,13 @@ const Gifts: React.FC = () => {
                       <div className="bank-detail text-center">
                         <div className="currency-badge mb-3" style={{ 
                           background: 'linear-gradient(135deg, var(--color-purple-light), var(--color-teal-light))',
-                          padding: '0.5rem 1rem',
-                          borderRadius: '20px',
-                          display: 'inline-block'
+                          padding: '0.75rem 1.5rem',
+                          borderRadius: '8px',
+                          display: 'inline-block',
+                          border: '1px solid var(--color-purple-light)'
                         }}>
-                          <span className="font-serif text-purple" style={{ fontSize: '0.9rem', fontWeight: '600' }}>
-                            💰 Cuenta en Pesos
+                          <span className="font-serif text-purple" style={{ fontSize: '1rem', fontWeight: '600' }}>
+                            Cuenta en Pesos
                           </span>
                         </div>
                         <div className="account-info">
@@ -82,12 +83,13 @@ const Gifts: React.FC = () => {
                       <div className="bank-detail text-center">
                         <div className="currency-badge mb-3" style={{ 
                           background: 'linear-gradient(135deg, var(--color-purple-light), var(--color-teal-light))',
-                          padding: '0.5rem 1rem',
-                          borderRadius: '20px',
-                          display: 'inline-block'
+                          padding: '0.75rem 1.5rem',
+                          borderRadius: '8px',
+                          display: 'inline-block',
+                          border: '1px solid var(--color-purple-light)'
                         }}>
-                          <span className="font-serif text-purple" style={{ fontSize: '0.9rem', fontWeight: '600' }}>
-                            💵 Cuenta en Dólares
+                          <span className="font-serif text-purple" style={{ fontSize: '1rem', fontWeight: '600' }}>
+                            Cuenta en Dólares
                           </span>
                         </div>
                         <div className="account-info">
