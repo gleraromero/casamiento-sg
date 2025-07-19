@@ -55,20 +55,17 @@ const RSVP: React.FC = () => {
       };
       
       // Enviar a Google Apps Script
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwPkZ0iOQ_abHz4yPtDED7qqcrKFXqPKGluHaC2GdXIwJZr70WssxXkMl1Mq_XbjD8I/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbwPkZ0iOQ_abHz4yPtDED7qqcrKFXqPKGluHaC2GdXIwJZr70WssxXkMl1Mq_XbjD8I/exec', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(rsvpData)
+        body: JSON.stringify(rsvpData),
+        mode: 'no-cors' // Necesario para evitar errores CORS
       });
 
-      if (!response.ok) {
-        throw new Error('Error en la respuesta del servidor');
-      }
-
-      const result = await response.json();
-      console.log('RSVP enviado exitosamente:', result);
+      // Con no-cors no podemos leer la respuesta, pero si llegamos aquí significa que se envió
+      console.log('RSVP enviado exitosamente');
       
       setSubmitStatus('success');
     } catch (error) {

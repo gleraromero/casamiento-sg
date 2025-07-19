@@ -18,9 +18,16 @@ export const useGuestCode = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Obtener el código de invitado de la URL
+    // Obtener el código de invitado de la URL (tanto de path como de query params)
     const pathSegments = window.location.pathname.split('/');
-    const codeFromUrl = pathSegments[pathSegments.length - 1];
+    const codeFromPath = pathSegments[pathSegments.length - 1];
+    
+    // También buscar en query parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const codeFromQuery = urlParams.get('code');
+    
+    // Usar el código del path o del query parameter
+    const codeFromUrl = codeFromPath || codeFromQuery;
     
     if (codeFromUrl && codeFromUrl !== '') {
       try {
