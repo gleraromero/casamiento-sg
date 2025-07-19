@@ -17,8 +17,8 @@ export const useGuestCode = () => {
     
     if (codeFromUrl && codeFromUrl !== '') {
       try {
-        // Decodificar el base64
-        const decodedString = atob(codeFromUrl);
+        // Decodificar el base64 con manejo correcto de UTF-8
+        const decodedString = decodeURIComponent(escape(atob(codeFromUrl)));
         const guestNames = decodedString.split(';').filter(name => name.trim() !== '');
         
         // Crear array de invitados
