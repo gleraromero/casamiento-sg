@@ -379,6 +379,21 @@
   min-height: 400px;
 }
 
+.directions-btn {
+  border: 2px solid var(--color-teal-medium) !important;
+  color: var(--color-teal-medium) !important;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.directions-btn:hover {
+  background-color: var(--color-teal-dark) !important;
+  border-color: var(--color-teal-dark) !important;
+  color: var(--color-white) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(112, 160, 144, 0.3);
+}
+
 /* Dress Code */
 .dress-code-section {
   background-color: var(--color-white);

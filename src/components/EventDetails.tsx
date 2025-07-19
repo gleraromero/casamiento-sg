@@ -82,11 +82,7 @@ const EventDetails: React.FC = () => {
                       </p>
                       <button 
                         onClick={handleDirections}
-                        className="btn btn-outline ms-5"
-                        style={{ 
-                          borderColor: 'var(--color-teal-medium)', 
-                          color: 'var(--color-teal-medium)' 
-                        }}
+                        className="btn directions-btn ms-5"
                       >
                         <Navigation size={16} className="me-2" />
                         ¿Cómo llegar?
