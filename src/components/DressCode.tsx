@@ -20,7 +20,7 @@ const DressCode: React.FC = () => {
                 </h3>
                 <div className="divider mx-auto mb-3"></div>
                 <p className="font-sans text-teal mb-0" style={{ fontSize: '1.1rem', fontWeight: '500' }}>
-                  Elegante Sport
+                  Elegante
                 </p>
               </div>
             </div>
@@ -43,7 +43,7 @@ const DressCode: React.FC = () => {
                       </h4>
                       <div className="dress-subtitle">
                         <p className="font-sans text-teal mb-0" style={{ fontSize: '0.95rem', opacity: '0.8' }}>
-                          Elegancia masculina
+                          Traje o blazer • Camisa de vestir • Zapatos de vestir • Corbata opcional
                         </p>
                       </div>
                     </div>
@@ -82,6 +82,23 @@ const DressCode: React.FC = () => {
                         </div>
                       </div>
                     </div>
+                    
+                    {/* Imagen de ejemplo para ellos */}
+                    <div className="dress-example-image mt-4">
+                      <div className="image-placeholder" style={{ 
+                        height: '200px', 
+                        background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(112, 160, 144, 0.1))',
+                        borderRadius: '12px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: '2px dashed rgba(139, 92, 246, 0.3)'
+                      }}>
+                        <span className="text-purple" style={{ color: 'var(--color-purple-medium)', fontSize: '0.9rem' }}>
+                          Imagen de ejemplo para ellos
+                        </span>
+                      </div>
+                    </div>
                   </Card.Body>
                 </Card>
               </Col>
@@ -103,7 +120,7 @@ const DressCode: React.FC = () => {
                       </h4>
                       <div className="dress-subtitle">
                         <p className="font-sans text-teal mb-0" style={{ fontSize: '0.95rem', opacity: '0.8' }}>
-                          Elegancia femenina
+                          Vestido cocktail • Conjunto elegante • Tacos o sandalias elegantes • Accesorios sutiles
                         </p>
                       </div>
                     </div>
@@ -140,6 +157,23 @@ const DressCode: React.FC = () => {
                             Accesorios sutiles
                           </span>
                         </div>
+                      </div>
+                    </div>
+                    
+                    {/* Imagen de ejemplo para ellas */}
+                    <div className="dress-example-image mt-4">
+                      <div className="image-placeholder" style={{ 
+                        height: '200px', 
+                        background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(112, 160, 144, 0.1))',
+                        borderRadius: '12px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: '2px dashed rgba(139, 92, 246, 0.3)'
+                      }}>
+                        <span className="text-purple" style={{ color: 'var(--color-purple-medium)', fontSize: '0.9rem' }}>
+                          Imagen de ejemplo para ellas
+                        </span>
                       </div>
                     </div>
                   </Card.Body>
