@@ -40,22 +40,39 @@ const RSVP: React.FC = () => {
     setSubmitStatus('idle');
 
     try {
-      // Simular envío al backend
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Aquí iría la llamada real al backend
+      // Preparar datos para Google Sheets
       const rsvpData = {
         guestCode,
-        guests,
+        guests: guests.map(guest => ({
+          name: guest.name,
+          attending: guest.attending,
+          dietaryRestrictions: guest.dietaryRestrictions
+        })),
         comments,
         attendingCount: getAttendingCount(),
-        totalCount: getTotalCount()
+        totalCount: getTotalCount(),
+        timestamp: new Date().toISOString()
       };
       
-      console.log('RSVP Data:', rsvpData);
+      // Enviar a Google Apps Script
+      const response = await fetch('https://script.google.com/macros/s/AKfycbzpk8NxizH9wsW1W2u3oYiy58QVOMOZAYN6iMT0MvVzB-NxQNPhm_Ql5URPXMS1mn-0/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(rsvpData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Error en la respuesta del servidor');
+      }
+
+      const result = await response.json();
+      console.log('RSVP enviado exitosamente:', result);
       
       setSubmitStatus('success');
-    } catch {
+    } catch (error) {
+      console.error('Error al enviar RSVP:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
