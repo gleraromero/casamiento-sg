@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Sparkles, User, Users, Heart, Award } from 'lucide-react';
+import { Sparkles, User, Users } from 'lucide-react';
 
 const DressCode: React.FC = () => {
   return (
@@ -111,38 +111,7 @@ const DressCode: React.FC = () => {
               </Col>
             </Row>
 
-            {/* Nota importante */}
-            <Row className="justify-content-center mt-5">
-              <Col lg={8} md={10}>
-                <Card className="dress-note-card border-0 shadow-sm">
-                  <Card.Body className="p-4 text-center">
-                    <div className="d-flex align-items-center justify-content-center mb-3">
-                      <Heart 
-                        size={24} 
-                        className="text-purple me-3"
-                        style={{ color: 'var(--color-purple-medium)' }}
-                      />
-                      <h5 className="font-serif text-purple mb-0" style={{ fontSize: '1.2rem' }}>
-                        Lo más importante
-                      </h5>
-                    </div>
-                    <p className="font-sans text-teal mb-3" style={{ fontSize: '1.1rem', fontStyle: 'italic' }}>
-                      "Que te sientas cómodo y elegante"
-                    </p>
-                    <div className="dress-avoid">
-                      <Award 
-                        size={20} 
-                        className="text-purple me-2"
-                        style={{ color: 'var(--color-purple-medium)' }}
-                      />
-                      <span className="font-sans text-gray" style={{ fontSize: '0.95rem' }}>
-                        Evitar: jeans, remeras casuales, zapatillas deportivas
-                      </span>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </Col>
-            </Row>
+
           </Col>
         </Row>
       </Container>
