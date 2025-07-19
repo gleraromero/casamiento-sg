@@ -85,7 +85,7 @@ const DressCode: React.FC = () => {
                       </h4>
                       <div className="dress-subtitle">
                         <p className="font-sans text-teal mb-0" style={{ fontSize: '0.95rem', opacity: '0.8' }}>
-                          Vestido cocktail • Conjunto elegante • Tacos o sandalias elegantes • Accesorios sutiles
+                          Vestido cocktail • Conjunto elegante • Accesorios sutiles
                         </p>
                       </div>
                     </div>
