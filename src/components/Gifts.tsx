@@ -55,17 +55,9 @@ const Gifts: React.FC = () => {
                   <Row className="g-4">
                     <Col md={6}>
                       <div className="bank-detail text-center">
-                        <div className="currency-badge mb-3" style={{ 
-                          background: 'linear-gradient(135deg, var(--color-purple-light), var(--color-teal-light))',
-                          padding: '0.75rem 1.5rem',
-                          borderRadius: '8px',
-                          display: 'inline-block',
-                          border: '1px solid var(--color-purple-light)'
-                        }}>
-                          <span className="font-serif text-purple" style={{ fontSize: '1rem', fontWeight: '600' }}>
-                            Cuenta en Pesos
-                          </span>
-                        </div>
+                        <h5 className="font-serif text-purple mb-3" style={{ fontSize: '1.2rem', fontWeight: '600' }}>
+                          💰 Cuenta en Pesos
+                        </h5>
                         <div className="account-info">
                           <h6 className="font-serif text-purple mb-2">Alias</h6>
                           <p className="font-sans text-teal mb-3" style={{ fontSize: '1.1rem', fontWeight: '600', fontFamily: 'monospace' }}>
@@ -81,17 +73,9 @@ const Gifts: React.FC = () => {
 
                     <Col md={6}>
                       <div className="bank-detail text-center">
-                        <div className="currency-badge mb-3" style={{ 
-                          background: 'linear-gradient(135deg, var(--color-purple-light), var(--color-teal-light))',
-                          padding: '0.75rem 1.5rem',
-                          borderRadius: '8px',
-                          display: 'inline-block',
-                          border: '1px solid var(--color-purple-light)'
-                        }}>
-                          <span className="font-serif text-purple" style={{ fontSize: '1rem', fontWeight: '600' }}>
-                            Cuenta en Dólares
-                          </span>
-                        </div>
+                        <h5 className="font-serif text-purple mb-3" style={{ fontSize: '1.2rem', fontWeight: '600' }}>
+                          💵 Cuenta en Dólares
+                        </h5>
                         <div className="account-info">
                           <h6 className="font-serif text-purple mb-2">Alias</h6>
                           <p className="font-sans text-teal mb-3" style={{ fontSize: '1.1rem', fontWeight: '600', fontFamily: 'monospace' }}>
