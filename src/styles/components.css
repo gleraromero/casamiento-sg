@@ -396,7 +396,127 @@
 
 /* Dress Code */
 .dress-code-section {
-  background-color: var(--color-white);
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f1f3f4 100%);
+}
+
+.dress-code-header {
+  position: relative;
+}
+
+.dress-code-header::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-purple-medium), var(--color-teal-medium));
+  border-radius: 1px;
+}
+
+.dress-code-card {
+  background: linear-gradient(145deg, #ffffff 0%, #fafbfc 100%);
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.dress-code-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-purple-medium), var(--color-teal-medium));
+}
+
+.dress-code-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dress-card-header {
+  position: relative;
+}
+
+.dress-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--color-purple-light), var(--color-teal-light));
+  border-radius: 50%;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.dress-code-card:hover .dress-icon-wrapper {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--color-purple-medium), var(--color-teal-medium));
+}
+
+.dress-subtitle {
+  position: relative;
+  display: inline-block;
+}
+
+.dress-subtitle::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-teal-medium), transparent);
+}
+
+.dress-options {
+  padding-top: 1rem;
+}
+
+.dress-option {
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(112, 160, 144, 0.05), rgba(139, 92, 246, 0.05));
+  border-radius: 12px;
+  border-left: 3px solid var(--color-purple-medium);
+  transition: all 0.3s ease;
+}
+
+.dress-option:hover {
+  background: linear-gradient(135deg, rgba(112, 160, 144, 0.1), rgba(139, 92, 246, 0.1));
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dress-note-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 12px !important;
+  border: 1px solid rgba(139, 92, 246, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dress-note-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-purple-medium), var(--color-teal-medium));
+}
+
+.dress-avoid {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: rgba(139, 92, 246, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.1);
 }
 
 .dress-code-card {

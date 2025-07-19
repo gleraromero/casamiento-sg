@@ -1,86 +1,184 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Sparkles, Users } from 'lucide-react';
+import { Sparkles, User, Users, Heart, Star, Award } from 'lucide-react';
 
 const DressCode: React.FC = () => {
   return (
     <section className="dress-code-section py-5">
       <Container>
         <Row className="justify-content-center">
-          <Col lg={8} md={10}>
+          <Col lg={10} md={12}>
             <div className="text-center mb-5">
-              <h3 className="font-serif text-purple mb-3" style={{ fontSize: '2rem' }}>
-                Dress Code
-              </h3>
-              <div className="divider mx-auto mb-4"></div>
-              <p className="font-sans text-teal mb-4" style={{ fontSize: '1.1rem' }}>
-                Una orientación para tu vestuario
-              </p>
+              <div className="dress-code-header mb-4">
+                <Sparkles 
+                  size={40} 
+                  className="text-purple mb-3"
+                  style={{ color: 'var(--color-purple-medium)' }}
+                />
+                <h3 className="font-serif text-purple mb-3" style={{ fontSize: '2.2rem' }}>
+                  Dress Code
+                </h3>
+                <div className="divider mx-auto mb-3"></div>
+                <p className="font-sans text-teal mb-0" style={{ fontSize: '1.1rem', fontWeight: '500' }}>
+                  Elegante Sport
+                </p>
+              </div>
             </div>
 
-            <Card className="dress-code-card border-0 shadow-sm">
-              <Card.Body className="p-5">
-                <div className="text-center mb-4">
-                  <Sparkles 
-                    size={48} 
-                    className="text-purple mb-3"
-                    style={{ color: 'var(--color-purple-medium)' }}
-                  />
-                  <h4 className="font-serif text-purple mb-3" style={{ fontSize: '1.5rem' }}>
-                    Elegante Sport
-                  </h4>
-                </div>
-
-                <Row className="g-4">
-                  <Col md={6}>
-                    <div className="dress-item">
-                      <div className="d-flex align-items-center mb-3">
-                        <Users 
-                          size={24} 
-                          className="text-purple me-3"
+            <Row className="g-4">
+              {/* Para Ellos */}
+              <Col lg={6} md={12}>
+                <Card className="dress-code-card border-0 shadow-lg h-100">
+                  <Card.Body className="p-5">
+                    <div className="dress-card-header text-center mb-4">
+                      <div className="dress-icon-wrapper mb-3">
+                        <User 
+                          size={32} 
+                          className="text-purple"
                           style={{ color: 'var(--color-purple-medium)' }}
                         />
-                        <h5 className="font-serif text-purple mb-0">Para Ellos</h5>
                       </div>
-                      <ul className="font-sans text-teal" style={{ fontSize: '1rem', listStyle: 'none', paddingLeft: '0' }}>
-                        <li className="mb-2">• Traje o blazer con pantalón</li>
-                        <li className="mb-2">• Camisa de vestir</li>
-                        <li className="mb-2">• Zapatos de vestir</li>
-                        <li className="mb-2">• Corbata opcional</li>
-                      </ul>
+                      <h4 className="font-serif text-purple mb-2" style={{ fontSize: '1.4rem' }}>
+                        Para Ellos
+                      </h4>
+                      <div className="dress-subtitle">
+                        <p className="font-sans text-teal mb-0" style={{ fontSize: '0.95rem', opacity: '0.8' }}>
+                          Elegancia masculina
+                        </p>
+                      </div>
                     </div>
-                  </Col>
 
-                  <Col md={6}>
-                    <div className="dress-item">
-                      <div className="d-flex align-items-center mb-3">
+                    <div className="dress-options">
+                      <div className="dress-option mb-3">
+                        <div className="d-flex align-items-center">
+                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
+                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                            Traje o blazer con pantalón
+                          </span>
+                        </div>
+                      </div>
+                      <div className="dress-option mb-3">
+                        <div className="d-flex align-items-center">
+                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
+                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                            Camisa de vestir
+                          </span>
+                        </div>
+                      </div>
+                      <div className="dress-option mb-3">
+                        <div className="d-flex align-items-center">
+                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
+                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                            Zapatos de vestir
+                          </span>
+                        </div>
+                      </div>
+                      <div className="dress-option">
+                        <div className="d-flex align-items-center">
+                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
+                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                            Corbata opcional
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+
+              {/* Para Ellas */}
+              <Col lg={6} md={12}>
+                <Card className="dress-code-card border-0 shadow-lg h-100">
+                  <Card.Body className="p-5">
+                    <div className="dress-card-header text-center mb-4">
+                      <div className="dress-icon-wrapper mb-3">
                         <Users 
-                          size={24} 
-                          className="text-purple me-3"
+                          size={32} 
+                          className="text-purple"
                           style={{ color: 'var(--color-purple-medium)' }}
                         />
-                        <h5 className="font-serif text-purple mb-0">Para Ellas</h5>
                       </div>
-                      <ul className="font-sans text-teal" style={{ fontSize: '1rem', listStyle: 'none', paddingLeft: '0' }}>
-                        <li className="mb-2">• Vestido cocktail</li>
-                        <li className="mb-2">• Conjunto elegante</li>
-                        <li className="mb-2">• Tacos o sandalias elegantes</li>
-                        <li className="mb-2">• Accesorios sutiles</li>
-                      </ul>
+                      <h4 className="font-serif text-purple mb-2" style={{ fontSize: '1.4rem' }}>
+                        Para Ellas
+                      </h4>
+                      <div className="dress-subtitle">
+                        <p className="font-sans text-teal mb-0" style={{ fontSize: '0.95rem', opacity: '0.8' }}>
+                          Elegancia femenina
+                        </p>
+                      </div>
                     </div>
-                  </Col>
-                </Row>
 
-                <div className="text-center mt-4 pt-4" style={{ borderTop: '1px solid var(--color-purple-light)' }}>
-                  <p className="font-sans text-gray mb-3" style={{ fontSize: '1rem', fontStyle: 'italic' }}>
-                    "Lo más importante es que te sientas cómodo y elegante"
-                  </p>
-                  <p className="font-sans text-teal" style={{ fontSize: '0.9rem' }}>
-                    Evitar: jeans, remeras casuales, zapatillas deportivas
-                  </p>
-                </div>
-              </Card.Body>
-            </Card>
+                    <div className="dress-options">
+                      <div className="dress-option mb-3">
+                        <div className="d-flex align-items-center">
+                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
+                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                            Vestido cocktail
+                          </span>
+                        </div>
+                      </div>
+                      <div className="dress-option mb-3">
+                        <div className="d-flex align-items-center">
+                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
+                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                            Conjunto elegante
+                          </span>
+                        </div>
+                      </div>
+                      <div className="dress-option mb-3">
+                        <div className="d-flex align-items-center">
+                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
+                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                            Tacos o sandalias elegantes
+                          </span>
+                        </div>
+                      </div>
+                      <div className="dress-option">
+                        <div className="d-flex align-items-center">
+                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
+                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                            Accesorios sutiles
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
+
+            {/* Nota importante */}
+            <Row className="justify-content-center mt-5">
+              <Col lg={8} md={10}>
+                <Card className="dress-note-card border-0 shadow-sm">
+                  <Card.Body className="p-4 text-center">
+                    <div className="d-flex align-items-center justify-content-center mb-3">
+                      <Heart 
+                        size={24} 
+                        className="text-purple me-3"
+                        style={{ color: 'var(--color-purple-medium)' }}
+                      />
+                      <h5 className="font-serif text-purple mb-0" style={{ fontSize: '1.2rem' }}>
+                        Lo más importante
+                      </h5>
+                    </div>
+                    <p className="font-sans text-teal mb-3" style={{ fontSize: '1.1rem', fontStyle: 'italic' }}>
+                      "Que te sientas cómodo y elegante"
+                    </p>
+                    <div className="dress-avoid">
+                      <Award 
+                        size={20} 
+                        className="text-purple me-2"
+                        style={{ color: 'var(--color-purple-medium)' }}
+                      />
+                      <span className="font-sans text-gray" style={{ fontSize: '0.95rem' }}>
+                        Evitar: jeans, remeras casuales, zapatillas deportivas
+                      </span>
+                    </div>
+                  </Card.Body>
+                </Card>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>
