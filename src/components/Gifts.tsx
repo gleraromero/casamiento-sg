@@ -52,44 +52,64 @@ const Gifts: React.FC = () => {
                     <h5 className="font-serif text-purple mb-3">Información Bancaria</h5>
                   </div>
 
-                  <Row className="g-3">
+                  <Row className="g-4">
                     <Col md={6}>
-                      <div className="bank-detail">
-                        <h6 className="font-serif text-purple mb-2">Banco</h6>
-                        <p className="font-sans text-teal mb-0">Banco de la Nación Argentina</p>
+                      <div className="bank-detail text-center">
+                        <div className="currency-badge mb-3" style={{ 
+                          background: 'linear-gradient(135deg, var(--color-purple-light), var(--color-teal-light))',
+                          padding: '0.5rem 1rem',
+                          borderRadius: '20px',
+                          display: 'inline-block'
+                        }}>
+                          <span className="font-serif text-purple" style={{ fontSize: '0.9rem', fontWeight: '600' }}>
+                            💰 Cuenta en Pesos
+                          </span>
+                        </div>
+                        <div className="account-info">
+                          <h6 className="font-serif text-purple mb-2">Alias</h6>
+                          <p className="font-sans text-teal mb-3" style={{ fontSize: '1.1rem', fontWeight: '600', fontFamily: 'monospace' }}>
+                            glr-bbva
+                          </p>
+                          <h6 className="font-serif text-purple mb-2">Número de Cuenta</h6>
+                          <p className="font-sans text-teal mb-3" style={{ fontSize: '1rem', fontFamily: 'monospace' }}>
+                            106-30454/5
+                          </p>
+                        </div>
                       </div>
                     </Col>
+
                     <Col md={6}>
-                      <div className="bank-detail">
-                        <h6 className="font-serif text-purple mb-2">Tipo de Cuenta</h6>
-                        <p className="font-sans text-teal mb-0">Cuenta Corriente</p>
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div className="bank-detail">
-                        <h6 className="font-serif text-purple mb-2">Número de Cuenta</h6>
-                        <p className="font-sans text-teal mb-0">1234567890</p>
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div className="bank-detail">
-                        <h6 className="font-serif text-purple mb-2">CBU</h6>
-                        <p className="font-sans text-teal mb-0">0110123456789012345678</p>
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div className="bank-detail">
-                        <h6 className="font-serif text-purple mb-2">Titular</h6>
-                        <p className="font-sans text-teal mb-0">Gonzalo Romero</p>
-                      </div>
-                    </Col>
-                    <Col md={6}>
-                      <div className="bank-detail">
-                        <h6 className="font-serif text-purple mb-2">DNI</h6>
-                        <p className="font-sans text-teal mb-0">12.345.678</p>
+                      <div className="bank-detail text-center">
+                        <div className="currency-badge mb-3" style={{ 
+                          background: 'linear-gradient(135deg, var(--color-purple-light), var(--color-teal-light))',
+                          padding: '0.5rem 1rem',
+                          borderRadius: '20px',
+                          display: 'inline-block'
+                        }}>
+                          <span className="font-serif text-purple" style={{ fontSize: '0.9rem', fontWeight: '600' }}>
+                            💵 Cuenta en Dólares
+                          </span>
+                        </div>
+                        <div className="account-info">
+                          <h6 className="font-serif text-purple mb-2">Alias</h6>
+                          <p className="font-sans text-teal mb-3" style={{ fontSize: '1.1rem', fontWeight: '600', fontFamily: 'monospace' }}>
+                            glr.sch.bbva.usd
+                          </p>
+                          <h6 className="font-serif text-purple mb-2">Número de Cuenta</h6>
+                          <p className="font-sans text-teal mb-3" style={{ fontSize: '1rem', fontFamily: 'monospace' }}>
+                            317-714938/7
+                          </p>
+                        </div>
                       </div>
                     </Col>
                   </Row>
+
+                  <div className="text-center mt-4 pt-4" style={{ borderTop: '1px solid var(--color-purple-light)' }}>
+                    <h6 className="font-serif text-purple mb-2">Titulares</h6>
+                    <p className="font-sans text-teal mb-0" style={{ fontSize: '1rem' }}>
+                      Gonzalo Lera Romero y Sofía Chiavassa
+                    </p>
+                  </div>
                 </div>
 
                 <div className="text-center mt-5 pt-4" style={{ borderTop: '1px solid var(--color-purple-light)' }}>
