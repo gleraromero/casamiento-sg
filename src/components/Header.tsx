@@ -10,11 +10,11 @@ const Header: React.FC = () => {
           <Col lg={8} md={10}>
             {/* Flores decorativas */}
             <div className="header-flowers mb-4">
-              <img 
-                src="/flores-header.png" 
-                alt="Flores decorativas" 
-                className="header-flowers-img"
-              />
+                              <img 
+                  src="/casamiento-sg/flores-header.png" 
+                  alt="Flores decorativas" 
+                  className="header-flowers-img"
+                />
             </div>
             
             {/* Título principal */}
@@ -24,11 +24,11 @@ const Header: React.FC = () => {
             
             {/* Imagen de los novios */}
             <div className="novios-image-container mb-4">
-              <img 
-                src="/novios.png" 
-                alt="Sofía y Gonzalo" 
-                className="novios-image"
-              />
+                              <img 
+                  src="/casamiento-sg/novios.png" 
+                  alt="Sofía y Gonzalo" 
+                  className="novios-image"
+                />
             </div>
             
             {/* Nombres */}

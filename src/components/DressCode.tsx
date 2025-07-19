@@ -53,7 +53,7 @@ const DressCode: React.FC = () => {
                     {/* Imagen de ejemplo para ellos */}
                     <div className="dress-example-image mt-4">
                       <img 
-                        src="/ejemplo-elegante-masculino.png" 
+                        src="/casamiento-sg/ejemplo-elegante-masculino.png" 
                         alt="Ejemplo de vestimenta elegante para hombres"
                         style={{ 
                           width: '100%',
@@ -95,7 +95,7 @@ const DressCode: React.FC = () => {
                     {/* Imagen de ejemplo para ellas */}
                     <div className="dress-example-image mt-4">
                       <img 
-                        src="/ejemplo-elegante-femenino.png" 
+                        src="/casamiento-sg/ejemplo-elegante-femenino.png" 
                         alt="Ejemplo de vestimenta elegante para mujeres"
                         style={{ 
                           width: '100%',
