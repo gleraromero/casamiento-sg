@@ -64,7 +64,7 @@ const RSVP: React.FC = () => {
 
               <div className="rsvp-content">
                 <h3 id="rsvp-title" className="rsvp-title">
-                  ¿Asistes a la ceremonia?
+                  {guests.length === 1 ? '¿Asistís a la ceremonia?' : '¿Asisten a la ceremonia?'}
                 </h3>
                 {submitStatus === 'success' && (
                   <Alert variant="success" className="mb-4" role="alert" aria-live="polite">
