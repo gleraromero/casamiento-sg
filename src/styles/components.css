@@ -163,7 +163,7 @@
 
 .address-line {
   font-family: var(--font-family-serif);
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   color: var(--color-teal-medium);
   line-height: 1.4;
   margin-bottom: 0.25rem;
@@ -188,7 +188,7 @@
   }
   
   .address-line {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
