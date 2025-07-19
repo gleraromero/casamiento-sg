@@ -208,46 +208,116 @@
 
 /* Countdown */
 .countdown-section {
-  background-color: var(--color-white);
-}
-
-.countdown-card {
-  background: linear-gradient(145deg, var(--color-white) 0%, var(--color-background) 100%);
-  border: 1px solid var(--color-purple-light) !important;
-  transition: all var(--transition-normal);
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-white) 100%);
   position: relative;
   overflow: hidden;
 }
 
-.countdown-card::before {
+.countdown-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 30% 30%, var(--color-purple-light) 0%, transparent 40%),
+    radial-gradient(circle at 70% 70%, var(--color-teal-light) 0%, transparent 40%);
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.countdown-item {
+  background: linear-gradient(145deg, var(--color-white) 0%, var(--color-background) 100%);
+  border: 2px solid var(--color-purple-light);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(160, 136, 184, 0.1);
+}
+
+.countdown-item::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(160, 136, 184, 0.1), transparent);
-  transition: left var(--transition-slow);
+  background: linear-gradient(90deg, transparent, rgba(160, 136, 184, 0.08), transparent);
+  transition: left 0.6s ease;
 }
 
-.countdown-card:hover::before {
+.countdown-item:hover::before {
   left: 100%;
 }
 
-.countdown-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: var(--shadow-lg) !important;
-  border-color: var(--color-purple-medium) !important;
+.countdown-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(160, 136, 184, 0.2);
+  border-color: var(--color-purple-medium);
 }
 
 .countdown-value {
+  font-family: 'Playfair Display', 'Times New Roman', serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--color-purple);
   line-height: 1;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  animation: numberChange 0.5s ease-out;
+}
+
+.countdown-item:hover .countdown-value {
+  transform: scale(1.05);
+  color: var(--color-purple-dark);
 }
 
 .countdown-label {
-  font-weight: 500;
-  letter-spacing: 1px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-teal-medium);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+}
+
+.countdown-item:hover .countdown-label {
+  color: var(--color-teal-dark);
+  transform: scale(1.02);
+}
+
+.countdown-title {
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-purple);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.countdown-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-purple-light) 0%, var(--color-teal-light) 100%);
+  border-radius: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-divider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--color-white), transparent);
+  animation: shimmer 2s infinite;
 }
 
 /* Heart divider */
@@ -634,6 +704,21 @@
 @keyframes shimmer {
   0% { left: -100%; }
   100% { left: 100%; }
+}
+
+@keyframes numberChange {
+  0% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* Animaciones de entrada */

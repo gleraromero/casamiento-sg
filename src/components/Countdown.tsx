@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { calculateCountdown } from '../utils/dateUtils';
 import type { CountdownData } from '../types';
 
@@ -27,20 +27,18 @@ const Countdown: React.FC = () => {
 
   const CountdownItem: React.FC<{ value: number; label: string }> = ({ value, label }) => (
     <Col xs={6} sm={3} className="mb-3">
-      <Card className="countdown-card text-center border-0 shadow-sm" role="region" aria-label={`${value} ${label}`}>
-        <Card.Body className="py-3">
-          <div 
-            className="countdown-value font-serif text-purple" 
-            style={{ fontSize: '2rem', fontWeight: 600 }}
-            aria-live="polite"
-          >
-            {value.toString().padStart(2, '0')}
-          </div>
-          <div className="countdown-label font-sans text-teal" style={{ fontSize: '0.9rem', textTransform: 'uppercase' }}>
-            {label}
-          </div>
-        </Card.Body>
-      </Card>
+      <div className="countdown-item" role="region" aria-label={`${value} ${label}`}>
+        <div 
+          className="countdown-value font-serif text-purple" 
+          aria-live="polite"
+          key={value}
+        >
+          {value.toString().padStart(2, '0')}
+        </div>
+        <div className="countdown-label font-sans text-teal">
+          {label}
+        </div>
+      </div>
     </Col>
   );
 
@@ -49,10 +47,11 @@ const Countdown: React.FC = () => {
       <Container>
         <Row className="justify-content-center">
           <Col lg={8} md={10}>
-            <div className="text-center mb-4">
-              <h3 className="font-serif text-purple mb-2" style={{ fontSize: '1.8rem' }}>
+            <div className="text-center mb-5">
+              <h3 className="countdown-title font-serif text-purple mb-3">
                 Falta
               </h3>
+              <div className="countdown-divider mx-auto mb-4"></div>
             </div>
             
             <Row className="justify-content-center">
