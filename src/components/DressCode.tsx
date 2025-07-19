@@ -48,28 +48,7 @@ const DressCode: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="dress-options">
-                      <div className="dress-option mb-3">
-                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                          Traje o blazer con pantalón
-                        </span>
-                      </div>
-                      <div className="dress-option mb-3">
-                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                          Camisa de vestir
-                        </span>
-                      </div>
-                      <div className="dress-option mb-3">
-                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                          Zapatos de vestir
-                        </span>
-                      </div>
-                      <div className="dress-option">
-                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                          Corbata opcional
-                        </span>
-                      </div>
-                    </div>
+
                     
                     {/* Imagen de ejemplo para ellos */}
                     <div className="dress-example-image mt-4">
@@ -111,28 +90,7 @@ const DressCode: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="dress-options">
-                      <div className="dress-option mb-3">
-                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                          Vestido cocktail
-                        </span>
-                      </div>
-                      <div className="dress-option mb-3">
-                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                          Conjunto elegante
-                        </span>
-                      </div>
-                      <div className="dress-option mb-3">
-                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                          Tacos o sandalias elegantes
-                        </span>
-                      </div>
-                      <div className="dress-option">
-                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                          Accesorios sutiles
-                        </span>
-                      </div>
-                    </div>
+
                     
                     {/* Imagen de ejemplo para ellas */}
                     <div className="dress-example-image mt-4">
