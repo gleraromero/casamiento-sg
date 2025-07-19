@@ -12,11 +12,11 @@ const App: React.FC = () => {
   return (
     <Layout>
       <Header />
+      <RSVP />
       <Countdown />
       <EventDetails />
       <DressCode />
       <Gifts />
-      <RSVP />
       <Footer />
     </Layout>
   );
