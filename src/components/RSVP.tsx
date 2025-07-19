@@ -1,33 +1,13 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
-import { Send, CheckCircle, XCircle } from 'lucide-react';
-import type { RSVPForm } from '../types';
+import { Send, CheckCircle, XCircle, Users } from 'lucide-react';
+import { useGuestCode } from '../hooks/useGuestCode';
 
 const RSVP: React.FC = () => {
-  const [formData, setFormData] = useState<RSVPForm>({
-    name: '',
-    email: '',
-    attending: true,
-    guestCount: 1,
-    comments: '',
-    dietaryRestrictions: '',
-  });
-
+  const { guests, guestCode, isLoading, updateGuestAttendance, getAttendingCount, getTotalCount } = useGuestCode();
+  const [comments, setComments] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value, type } = e.target;
-    
-    if (type === 'checkbox') {
-      const checked = (e.target as HTMLInputElement).checked;
-      setFormData(prev => ({ ...prev, [name]: checked }));
-    } else if (name === 'guestCount') {
-      setFormData(prev => ({ ...prev, [name]: parseInt(value) || 1 }));
-    } else {
-      setFormData(prev => ({ ...prev, [name]: value }));
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,17 +19,17 @@ const RSVP: React.FC = () => {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       // Aquí iría la llamada real al backend
-      console.log('RSVP Data:', formData);
+      const rsvpData = {
+        guestCode,
+        guests,
+        comments,
+        attendingCount: getAttendingCount(),
+        totalCount: getTotalCount()
+      };
+      
+      console.log('RSVP Data:', rsvpData);
       
       setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        attending: true,
-        guestCount: 1,
-        comments: '',
-        dietaryRestrictions: '',
-      });
     } catch {
       setSubmitStatus('error');
     } finally {
@@ -102,56 +82,61 @@ const RSVP: React.FC = () => {
 
                 <Form onSubmit={handleSubmit}>
                   <div className="rsvp-form-simple">
-                    {/* Opciones de asistencia */}
-                    <div className="rsvp-options mb-4">
-                      <div className="d-flex justify-content-center gap-4">
-                        <Form.Check
-                          type="radio"
-                          name="attending"
-                          id="attending-yes"
-                          checked={formData.attending}
-                          onChange={() => setFormData(prev => ({ ...prev, attending: true }))}
-                          label="¡Sí, confirmo!"
-                          className="rsvp-radio"
-                        />
-                        <Form.Check
-                          type="radio"
-                          name="attending"
-                          id="attending-no"
-                          checked={!formData.attending}
-                          onChange={() => setFormData(prev => ({ ...prev, attending: false }))}
-                          label="No puedo :("
-                          className="rsvp-radio"
-                        />
+                    {isLoading ? (
+                      <div className="text-center py-4">
+                        <div className="spinner-border text-purple" role="status"></div>
+                        <p className="mt-2">Cargando invitados...</p>
                       </div>
-                    </div>
+                    ) : (
+                      <>
+                        {/* Lista de invitados */}
+                        <div className="guests-list mb-4">
+                          <h5 className="text-center mb-3">
+                            <Users size={20} className="me-2" />
+                            Confirmar asistencia por invitado
+                          </h5>
+                          {guests.map((guest, index) => (
+                            <div key={index} className="guest-item mb-3">
+                              <div className="guest-name">{guest.name}</div>
+                              <div className="guest-options">
+                                <Form.Check
+                                  type="radio"
+                                  name={`guest-${index}`}
+                                  id={`guest-${index}-yes`}
+                                  checked={guest.attending}
+                                  onChange={() => updateGuestAttendance(index, true)}
+                                  label="¡Sí, confirmo!"
+                                  className="rsvp-radio"
+                                />
+                                <Form.Check
+                                  type="radio"
+                                  name={`guest-${index}`}
+                                  id={`guest-${index}-no`}
+                                  checked={!guest.attending}
+                                  onChange={() => updateGuestAttendance(index, false)}
+                                  label="No puedo :("
+                                  className="rsvp-radio"
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
 
-                    {/* Campos de entrada */}
-                    <div className="rsvp-inputs">
-                      <Form.Group className="mb-3">
-                        <Form.Control
-                          type="text"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="Ingrese su nombre completo"
-                          required
-                          className="rsvp-input"
-                        />
-                      </Form.Group>
-
-                      <Form.Group className="mb-4">
-                        <Form.Control
-                          as="textarea"
-                          name="comments"
-                          value={formData.comments}
-                          onChange={handleInputChange}
-                          placeholder="Ingrese algún dato importante. Ej: Soy vegetariano"
-                          rows={2}
-                          className="rsvp-input"
-                        />
-                      </Form.Group>
-                    </div>
+                        {/* Campo de comentarios */}
+                        <div className="rsvp-inputs">
+                          <Form.Group className="mb-4">
+                            <Form.Control
+                              as="textarea"
+                              value={comments}
+                              onChange={(e) => setComments(e.target.value)}
+                              placeholder="Ingrese algún dato importante. Ej: Soy vegetariano"
+                              rows={2}
+                              className="rsvp-input"
+                            />
+                          </Form.Group>
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   <div className="text-center mt-4">
