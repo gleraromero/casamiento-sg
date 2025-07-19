@@ -10,6 +10,23 @@ const RSVP: React.FC = () => {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [expandedDietary, setExpandedDietary] = useState<number[]>([]);
 
+  const getDietaryText = (restrictions: {
+    anyFood: boolean;
+    vegetarian: boolean;
+    vegan: boolean;
+    celiac: boolean;
+  }) => {
+    const options = [];
+    if (restrictions.anyFood) options.push('Cualquier comida');
+    if (restrictions.vegetarian) options.push('Vegetariano');
+    if (restrictions.vegan) options.push('Vegano');
+    if (restrictions.celiac) options.push('Celíaco');
+    
+    if (options.length === 0) return 'Soy vegetariano / vegano / celíaco';
+    if (options.length === 1) return options[0];
+    return options.join(' + ');
+  };
+
   const toggleDietaryExpansion = (guestIndex: number) => {
     setExpandedDietary(prev => 
       prev.includes(guestIndex) 
@@ -136,7 +153,7 @@ const RSVP: React.FC = () => {
                                     onClick={() => toggleDietaryExpansion(index)}
                                   >
                                     <span className="dietary-toggle-text">
-                                      Soy vegetariano / vegano / celíaco
+                                      {getDietaryText(guest.dietaryRestrictions)}
                                     </span>
                                     <span className={`dietary-toggle-arrow ${expandedDietary.includes(index) ? 'expanded' : ''}`}>
                                       ▼

@@ -510,7 +510,7 @@
 .dietary-options {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
-  padding: 0.75rem;
+  padding: 0.5rem;
   margin-top: 0.75rem;
   border: 1px solid var(--color-teal-light);
 }
@@ -520,10 +520,11 @@
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.35rem 0.5rem;
   border-radius: 6px;
   transition: background-color 0.2s ease;
   user-select: none;
+  min-height: 32px;
 }
 
 .dietary-toggle:hover {
@@ -560,9 +561,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.5rem;
-  padding-top: 0.75rem;
+  padding-top: 0.5rem;
   border-top: 1px solid var(--color-teal-light);
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .dietary-checkbox {
