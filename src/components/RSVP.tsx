@@ -66,7 +66,7 @@ const RSVP: React.FC = () => {
               {/* Flores decorativas */}
               <div className="rsvp-flowers">
                 <img 
-                  src="/flores-header.png" 
+                  src="/flores-asistencia.png" 
                   alt="Flores decorativas" 
                   className="rsvp-flowers-img"
                 />
