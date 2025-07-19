@@ -83,6 +83,12 @@ const Header: React.FC = () => {
                   </div>
                 </div>
               </div>
+              
+              {/* Dirección */}
+              <div className="address-section mt-4">
+                <div className="address-line">Bartolomé Mitre 1265,</div>
+                <div className="address-line">Entre Talcahuano y Libertad.</div>
+              </div>
             </div>
           </Col>
         </Row>

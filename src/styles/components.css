@@ -155,6 +155,20 @@
   opacity: 0.8;
 }
 
+/* Dirección */
+.address-section {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.address-line {
+  font-family: var(--font-family-serif);
+  font-size: 1.1rem;
+  color: var(--color-teal-medium);
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+
 /* Responsive para la fecha */
 @media (max-width: 768px) {
   .date-display {
@@ -171,6 +185,10 @@
   
   .month-abbr {
     font-size: 0.9rem;
+  }
+  
+  .address-line {
+    font-size: 1rem;
   }
 }
 
