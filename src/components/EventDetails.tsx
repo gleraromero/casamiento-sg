@@ -12,7 +12,8 @@ const EventDetails: React.FC = () => {
   };
 
   const handleDirections = () => {
-    const url = 'https://www.google.com/maps/dir/-34.5707801,-58.4476247/Jano\'s+Caba,+Bartolom%C3%A9+Mitre,+Buenos+Aires/@-34.5805742,-58.4550156,13z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x95bccb354b4691ef:0xba9a0b7730fb8527!2m2!1d-58.3844656!2d-34.60723?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D';
+    const destination = 'Janos,+Bartolom%C3%A9+Mitre+1265,+Buenos+Aires';
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${destination}`;
     window.open(url, '_blank');
   };
 
