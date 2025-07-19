@@ -4,8 +4,8 @@ import { MapPin, Clock, Calendar, Navigation } from 'lucide-react';
 
 const EventDetails: React.FC = () => {
   const eventInfo = {
-    date: 'Sábado 19 de Octubre de 2025',
-    time: '18:00 hs',
+    date: 'Sábado 4 de Octubre de 2025',
+    time: '18:30 hs',
     location: 'Salón de Fiestas Elegante',
     address: 'Av. Principal 1234, Buenos Aires',
     coordinates: { lat: -34.6037, lng: -58.3816 }, // Buenos Aires

@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
               </div>
               
               <h4 className="font-serif text-purple mb-3" style={{ fontSize: '1.5rem' }}>
-                Gonzalo & Sofía
+                Sofía & Gonzalo
               </h4>
               
               <p className="font-sans text-teal mb-4" style={{ fontSize: '1rem' }}>

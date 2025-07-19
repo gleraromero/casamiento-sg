@@ -8,6 +8,15 @@ const Header: React.FC = () => {
       <Container>
         <Row className="justify-content-center">
           <Col lg={8} md={10}>
+            {/* Flores decorativas */}
+            <div className="header-flowers mb-4">
+              <img 
+                src="/flores-header.png" 
+                alt="Flores decorativas" 
+                className="header-flowers-img"
+              />
+            </div>
+            
             {/* Título principal */}
             <h1 className="font-script text-purple mb-3" style={{ fontSize: '3.5rem' }}>
               ¡Nos casamos!
@@ -16,7 +25,7 @@ const Header: React.FC = () => {
             {/* Nombres */}
             <div className="names-section mb-4">
               <h2 className="font-serif text-purple mb-2" style={{ fontSize: '2.5rem', fontWeight: 600 }}>
-                Gonzalo
+                Sofía
               </h2>
               <div className="heart-divider d-flex align-items-center justify-content-center mb-2">
                 <div className="line flex-grow-1" style={{ height: '1px', backgroundColor: 'var(--color-purple-light)' }}></div>
@@ -29,17 +38,17 @@ const Header: React.FC = () => {
                 <div className="line flex-grow-1" style={{ height: '1px', backgroundColor: 'var(--color-purple-light)' }}></div>
               </div>
               <h2 className="font-serif text-purple" style={{ fontSize: '2.5rem', fontWeight: 600 }}>
-                Sofía
+                Gonzalo
               </h2>
             </div>
             
             {/* Fecha */}
             <div className="date-section">
               <p className="font-sans text-teal mb-1" style={{ fontSize: '1.1rem' }}>
-                Sábado 19 de Octubre de 2025
+                Sábado 4 de Octubre de 2025
               </p>
               <p className="font-sans text-teal" style={{ fontSize: '1.1rem' }}>
-                18:00 hs
+                18:30 hs
               </p>
             </div>
           </Col>

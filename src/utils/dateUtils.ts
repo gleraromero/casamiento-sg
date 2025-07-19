@@ -1,6 +1,6 @@
 import type { CountdownData } from '../types';
 
-export const WEDDING_DATE = new Date('2025-10-19T18:00:00');
+export const WEDDING_DATE = new Date('2025-10-04T18:30:00');
 
 export const calculateCountdown = (): CountdownData => {
   const now = new Date();
