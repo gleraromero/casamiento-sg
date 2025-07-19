@@ -101,27 +101,16 @@ const EventDetails: React.FC = () => {
                 <Card className="map-card border-0 shadow-sm h-100">
                   <Card.Body className="p-0">
                     <div className="map-container" style={{ height: '400px', position: 'relative' }}>
-                      <div 
-                        className="map-placeholder d-flex align-items-center justify-content-center"
-                        style={{ 
-                          height: '100%', 
-                          backgroundColor: 'var(--color-background)',
-                          border: '2px dashed var(--color-purple-light)',
-                          borderRadius: 'var(--border-radius-md)'
-                        }}
-                      >
-                        <div className="text-center">
-                          <MapPin 
-                            size={48} 
-                            className="text-purple mb-3"
-                            style={{ color: 'var(--color-purple-medium)' }}
-                          />
-                          <p className="font-sans text-teal mb-2">Mapa del evento</p>
-                          <p className="font-sans text-gray" style={{ fontSize: '0.9rem' }}>
-                            Haz clic en "¿Cómo llegar?" para ver la ubicación
-                          </p>
-                        </div>
-                      </div>
+                      <iframe
+                        src="https://maps.google.com/maps?q=Janos,Bartolomé+Mitre+1265,Buenos+Aires,Argentina&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0, borderRadius: '8px' }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Ubicación de Janos"
+                      ></iframe>
                     </div>
                   </Card.Body>
                 </Card>
