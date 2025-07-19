@@ -448,15 +448,21 @@
   justify-content: center;
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--color-purple-light), var(--color-teal-light));
+  background: linear-gradient(135deg, var(--color-purple-medium), var(--color-teal-medium));
   border-radius: 50%;
   margin: 0 auto;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+.dress-icon-wrapper svg {
+  color: var(--color-white) !important;
 }
 
 .dress-code-card:hover .dress-icon-wrapper {
   transform: scale(1.1);
-  background: linear-gradient(135deg, var(--color-purple-medium), var(--color-teal-medium));
+  background: linear-gradient(135deg, var(--color-purple-dark), var(--color-teal-dark));
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
 }
 
 .dress-subtitle {
