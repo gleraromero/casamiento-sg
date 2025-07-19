@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import { Heart, Phone, Mail, MessageCircle } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -22,49 +22,8 @@ const Footer: React.FC = () => {
                 Sofía & Gonzalo
               </h4>
               
-              <p className="font-sans text-teal mb-4" style={{ fontSize: '1rem' }}>
+              <p className="font-sans text-teal mb-0" style={{ fontSize: '1rem' }}>
                 Gracias por ser parte de nuestro día especial
-              </p>
-              
-              <div className="contact-info mb-4">
-                <Row className="justify-content-center g-3">
-                  <Col md={4}>
-                    <div className="contact-item">
-                      <Phone 
-                        size={20} 
-                        className="text-purple me-2"
-                        style={{ color: 'var(--color-purple-medium)' }}
-                      />
-                      <span className="font-sans text-teal">+54 11 1234-5678</span>
-                    </div>
-                  </Col>
-                  <Col md={4}>
-                    <div className="contact-item">
-                      <Mail 
-                        size={20} 
-                        className="text-purple me-2"
-                        style={{ color: 'var(--color-purple-medium)' }}
-                      />
-                      <span className="font-sans text-teal">casamiento@email.com</span>
-                    </div>
-                  </Col>
-                  <Col md={4}>
-                    <div className="contact-item">
-                      <MessageCircle 
-                        size={20} 
-                        className="text-purple me-2"
-                        style={{ color: 'var(--color-purple-medium)' }}
-                      />
-                      <span className="font-sans text-teal">WhatsApp</span>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-              
-              <div className="footer-divider mx-auto mb-4"></div>
-              
-              <p className="font-sans text-gray" style={{ fontSize: '0.9rem' }}>
-                Desarrollado con ❤️ para nuestro casamiento
               </p>
             </div>
           </Col>
