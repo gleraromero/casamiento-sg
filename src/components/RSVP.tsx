@@ -22,7 +22,6 @@ const RSVP: React.FC = () => {
     if (restrictions.vegan) options.push('Vegano');
     if (restrictions.celiac) options.push('Celíaco');
     
-    if (options.length === 0) return 'Soy vegetariano / vegano / celíaco';
     if (options.length === 1) return options[0];
     return options.join(' + ');
   };
@@ -191,6 +190,12 @@ const RSVP: React.FC = () => {
                                             // Si selecciona vegetariano, deseleccionar "cualquier comida"
                                             anyFood: e.target.checked ? false : guest.dietaryRestrictions.anyFood
                                           };
+                                          
+                                          // Si se deselecciona vegetariano y no hay otras opciones seleccionadas, seleccionar "cualquier comida"
+                                          if (!e.target.checked && !newRestrictions.vegan && !newRestrictions.celiac) {
+                                            newRestrictions.anyFood = true;
+                                          }
+                                          
                                           updateGuestDietaryRestrictions(index, newRestrictions);
                                         }}
                                         label="Soy vegetariano/a"
@@ -207,6 +212,12 @@ const RSVP: React.FC = () => {
                                             // Si selecciona vegano, deseleccionar "cualquier comida"
                                             anyFood: e.target.checked ? false : guest.dietaryRestrictions.anyFood
                                           };
+                                          
+                                          // Si se deselecciona vegano y no hay otras opciones seleccionadas, seleccionar "cualquier comida"
+                                          if (!e.target.checked && !newRestrictions.vegetarian && !newRestrictions.celiac) {
+                                            newRestrictions.anyFood = true;
+                                          }
+                                          
                                           updateGuestDietaryRestrictions(index, newRestrictions);
                                         }}
                                         label="Soy vegano/a"
@@ -221,6 +232,12 @@ const RSVP: React.FC = () => {
                                             ...guest.dietaryRestrictions,
                                             celiac: e.target.checked
                                           };
+                                          
+                                          // Si se deselecciona celíaco y no hay otras opciones seleccionadas, seleccionar "cualquier comida"
+                                          if (!e.target.checked && !newRestrictions.vegetarian && !newRestrictions.vegan) {
+                                            newRestrictions.anyFood = true;
+                                          }
+                                          
                                           updateGuestDietaryRestrictions(index, newRestrictions);
                                         }}
                                         label="Soy celíaco/a"
