@@ -31,7 +31,7 @@ export const useGuestCode = () => {
           // Crear array de invitados
           const guestList = guestNames.map(name => ({
             name: name.trim(),
-            attending: false,
+            attending: true,
             dietaryRestrictions: {
               anyFood: true,
               vegetarian: false,
@@ -47,22 +47,22 @@ export const useGuestCode = () => {
           setGuests([
             { 
               name: 'Sofia Garcia', 
-              attending: false,
+              attending: true,
               dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
             },
             { 
               name: 'Gonzalo Rodriguez', 
-              attending: false,
+              attending: true,
               dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
             },
             { 
               name: 'Maria Lopez', 
-              attending: false,
+              attending: true,
               dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
             },
             { 
               name: 'Carlos Silva', 
-              attending: false,
+              attending: true,
               dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
             }
           ]);
@@ -74,22 +74,22 @@ export const useGuestCode = () => {
         setGuests([
           { 
             name: 'Sofia Garcia', 
-            attending: false,
+            attending: true,
             dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
           },
           { 
             name: 'Gonzalo Rodriguez', 
-            attending: false,
+            attending: true,
             dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
           },
           { 
             name: 'Maria Lopez', 
-            attending: false,
+            attending: true,
             dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
           },
           { 
             name: 'Carlos Silva', 
-            attending: false,
+            attending: true,
             dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
           }
         ]);
@@ -100,22 +100,22 @@ export const useGuestCode = () => {
       setGuests([
         { 
           name: 'Sofia Garcia', 
-          attending: false,
+          attending: true,
           dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
         },
         { 
           name: 'Gonzalo Rodriguez', 
-          attending: false,
+          attending: true,
           dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
         },
         { 
           name: 'Maria Lopez', 
-          attending: false,
+          attending: true,
           dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
         },
         { 
           name: 'Carlos Silva', 
-          attending: false,
+          attending: true,
           dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
         }
       ]);

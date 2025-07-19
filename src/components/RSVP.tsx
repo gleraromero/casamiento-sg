@@ -202,7 +202,7 @@ const RSVP: React.FC = () => {
                               as="textarea"
                               value={comments}
                               onChange={(e) => setComments(e.target.value)}
-                              placeholder="Ingrese algún dato importante. Ej: Soy vegetariano"
+                              placeholder="Ingrese algún dato importante"
                               rows={2}
                               className="rsvp-input"
                             />
