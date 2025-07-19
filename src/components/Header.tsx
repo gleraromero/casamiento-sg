@@ -22,6 +22,15 @@ const Header: React.FC = () => {
               ¡Nos casamos!
             </h1>
             
+            {/* Imagen de los novios */}
+            <div className="novios-image-container mb-4">
+              <img 
+                src="/novios.png" 
+                alt="Sofía y Gonzalo" 
+                className="novios-image"
+              />
+            </div>
+            
             {/* Nombres */}
             <div className="names-section mb-4">
               <h2 className="font-serif text-purple mb-2" style={{ fontSize: '2.5rem', fontWeight: 600 }}>

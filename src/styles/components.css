@@ -43,6 +43,22 @@
   object-fit: contain;
 }
 
+/* Imagen de los novios */
+.novios-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.novios-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
 /* Fecha estilizada */
 .styled-date-section {
   margin-top: 2rem;
