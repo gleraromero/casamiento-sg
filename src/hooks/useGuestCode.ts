@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { findGuestsByCode, getDescriptionByCode } from '../config/guestCodes';
 
 interface Guest {
   name: string;
@@ -8,6 +9,7 @@ interface Guest {
 export const useGuestCode = () => {
   const [guests, setGuests] = useState<Guest[]>([]);
   const [guestCode, setGuestCode] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -17,20 +19,33 @@ export const useGuestCode = () => {
     
     if (codeFromUrl && codeFromUrl !== '') {
       try {
-        // Decodificar el base64 con manejo correcto de UTF-8
-        const decodedString = decodeURIComponent(escape(atob(codeFromUrl)));
-        const guestNames = decodedString.split(';').filter(name => name.trim() !== '');
+        // Buscar invitados por código
+        const guestNames = findGuestsByCode(codeFromUrl);
+        const guestDescription = getDescriptionByCode(codeFromUrl);
         
-        // Crear array de invitados
-        const guestList = guestNames.map(name => ({
-          name: name.trim(),
-          attending: false
-        }));
-        
-        setGuests(guestList);
-        setGuestCode(codeFromUrl);
+        if (guestNames) {
+          // Crear array de invitados
+          const guestList = guestNames.map(name => ({
+            name: name.trim(),
+            attending: false
+          }));
+          
+          setGuests(guestList);
+          setGuestCode(codeFromUrl.toUpperCase());
+          setDescription(guestDescription || '');
+        } else {
+          // Código no encontrado, usar invitados de ejemplo
+          setGuests([
+            { name: 'Sofia Garcia', attending: false },
+            { name: 'Gonzalo Rodriguez', attending: false },
+            { name: 'Maria Lopez', attending: false },
+            { name: 'Carlos Silva', attending: false }
+          ]);
+          setGuestCode('DEMO');
+          setDescription('Código de demostración');
+        }
       } catch (error) {
-        console.error('Error decodificando el código de invitado:', error);
+        console.error('Error buscando el código de invitado:', error);
         // Si hay error, usar invitados de ejemplo
         setGuests([
           { name: 'Sofia Garcia', attending: false },
@@ -38,6 +53,8 @@ export const useGuestCode = () => {
           { name: 'Maria Lopez', attending: false },
           { name: 'Carlos Silva', attending: false }
         ]);
+        setGuestCode('ERROR');
+        setDescription('Error al cargar invitados');
       }
     } else {
       // Si no hay código, usar invitados de ejemplo
@@ -47,6 +64,8 @@ export const useGuestCode = () => {
         { name: 'Maria Lopez', attending: false },
         { name: 'Carlos Silva', attending: false }
       ]);
+      setGuestCode('DEMO');
+      setDescription('Código de demostración');
     }
     
     setIsLoading(false);
@@ -69,6 +88,7 @@ export const useGuestCode = () => {
   return {
     guests,
     guestCode,
+    description,
     isLoading,
     updateGuestAttendance,
     getAttendingCount,

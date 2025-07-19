@@ -396,6 +396,14 @@
   font-weight: 400;
 }
 
+.rsvp-description {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  color: var(--color-teal-medium);
+  font-style: italic;
+  text-align: center;
+}
+
 .rsvp-submit-btn {
   background: linear-gradient(145deg, #D4AF37 0%, #B8941F 100%) !important;
   border: none !important;
