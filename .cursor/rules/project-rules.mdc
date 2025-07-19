@@ -1,0 +1,103 @@
+🧾 Sitio Web de la Boda – Reglas del Proyecto
+
+Este documento define las reglas de trabajo para construir el sitio oficial de invitación de casamiento de Gonzalo y Sofía. Buscamos que el sitio sea claro, ágil, mantenible y que refleje nuestros valores como equipo (y como pareja 😄).
+
+Nos inspiramos en el diseño de este modelo de invitación, que queremos replicar en estética general, estructura y tipo de secciones, adaptándolo a nuestro estilo y contenido.
+
+🧭 Principios Generales
+
+Minimalismo intencional: Cada página, componente y dependencia debe justificar su existencia. Nada de relleno.
+
+Claridad antes que complejidad: Diseño limpio, textos simples y estructura intuitiva.
+
+Rendimiento primero: Optimizamos tiempos de carga, tamaño del bundle y uso de recursos.
+
+Mobile-first: El sitio debe verse y funcionar perfecto desde el celular.
+
+Preparado para el futuro: Nada de suposiciones locales fijas (como idioma o moneda). Pensamos en un sitio global.
+
+Hecho para durar: Usamos tecnologías y patrones que seguiríamos eligiendo dentro de 3 años.
+
+🎯 Secciones requeridas
+
+Encabezado con nuestros nombres y la fecha del casamiento
+Ej: Gonzalo & Sofía – 19 de Octubre de 2025 · 18:00 hs
+
+Contador regresivo
+Visible al entrar, destacando cuántos días faltan.
+
+Detalles del evento
+Día, hora y dirección del casamiento (idealmente con mapa embebido).
+
+Dress code
+Sección clara con el código de vestimenta.
+
+Regalos
+Queremos evitar listas de regalos. En su lugar, explicar de forma amable que se agradecen transferencias a una cuenta bancaria que vamos a incluir.
+
+Confirmación de asistencia (RSVP)
+Ultra importante. Debe ser una sección destacada y funcional, donde las personas puedan confirmar si asisten, cuántos van, y dejar comentarios o restricciones (como comida vegana o alergias). El backend para esto lo definimos más adelante.
+
+🛠 Tecnología & Convenciones de Código
+
+Framework: React
+
+Gestor de paquetes: npm (sin yarn ni pnpm)
+
+Node: Fijado con .nvmrc. Siempre usar nvm use
+
+Estilos: React Bootstrap. CSS custom solo si es estrictamente necesario
+
+Íconos: lucide-react. Consistente y liviano
+
+Tipado: TypeScript obligatorio. Nada de any, @ts-ignore o tipos implícitos
+
+📐 Lint & Formato
+
+ESLint con @typescript-eslint y react-hooks
+
+Prettier para formateo
+
+Husky + lint-staged para validar en cada commit
+
+🧪 Testing
+
+No hay testing.
+
+🚀 Hosting: Railway
+
+📄 Contenido & Voz
+
+Tono: Cercano, claro y profesional — jamás corporativo o acartonado
+
+Idioma: Español neutro. Evitar modismos o jerga técnica innecesaria
+
+Marca: Paleta, tipografía y logos definidos. Incluir versiones claras y oscuras si corresponde
+
+🌿 Git & Colaboración
+
+main siempre debe ser desplegable
+
+Usar ramas feature/xyz para cada funcionalidad
+
+Commits con convención: feat:, fix:, chore:
+
+Evitar git push --force en ramas compartidas
+
+Revisión de código obligatoria, incluso para PRs propios (pedir feedback a otro founder... o cónyuge 😉)
+
+✅ Checklist antes de mergear a main
+
+Se ve bien en desktop y mobile
+
+Todo el texto revisado (tono, claridad, ortografía)
+
+Sin links rotos ni imágenes sin alt
+
+npm test pasa correctamente
+
+.env.example actualizado si aplica
+
+🧠 Filosofía
+
+Este sitio lo estamos armando con amor y dedicación. No apuramos nada ni hacemos atajos. Es simple, pero cada detalle importa — como en el casamiento ❤️.
