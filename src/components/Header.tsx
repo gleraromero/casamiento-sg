@@ -25,7 +25,7 @@ const Header: React.FC = () => {
             {/* Imagen de los novios */}
             <div className="novios-image-container mb-4">
               <img 
-                src="/novios-2.png" 
+                src="/novios.png" 
                 alt="Sofía y Gonzalo" 
                 className="novios-image"
               />
