@@ -17,7 +17,7 @@ const RSVP: React.FC = () => {
     celiac: boolean;
   }) => {
     const options = [];
-    if (restrictions.anyFood) options.push('Cualquier comida');
+    if (restrictions.anyFood) options.push('No tengo restricciones dietarias');
     if (restrictions.vegetarian) options.push('Vegetariano');
     if (restrictions.vegan) options.push('Vegano');
     if (restrictions.celiac) options.push('Celíaco');
@@ -176,7 +176,7 @@ const RSVP: React.FC = () => {
                                           };
                                           updateGuestDietaryRestrictions(index, newRestrictions);
                                         }}
-                                        label="Como cualquier cosa"
+                                        label="No tengo restricciones dietarias"
                                         className="dietary-checkbox"
                                       />
                                       <Form.Check
