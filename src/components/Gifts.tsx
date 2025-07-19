@@ -55,7 +55,14 @@ const Gifts: React.FC = () => {
                   <Row className="g-4">
                     <Col md={6}>
                       <div className="bank-detail text-center">
-                        <h5 className="font-serif text-purple mb-3" style={{ fontSize: '1.2rem', fontWeight: '600' }}>
+                        <h5 className="font-serif text-purple mb-3" style={{ 
+                          fontSize: '1.2rem', 
+                          fontWeight: '600',
+                          background: 'rgba(139, 92, 246, 0.05)',
+                          padding: '0.5rem 1rem',
+                          borderRadius: '6px',
+                          display: 'inline-block'
+                        }}>
                           💰 Cuenta en Pesos
                         </h5>
                         <div className="account-info">
@@ -73,7 +80,14 @@ const Gifts: React.FC = () => {
 
                     <Col md={6}>
                       <div className="bank-detail text-center">
-                        <h5 className="font-serif text-purple mb-3" style={{ fontSize: '1.2rem', fontWeight: '600' }}>
+                        <h5 className="font-serif text-purple mb-3" style={{ 
+                          fontSize: '1.2rem', 
+                          fontWeight: '600',
+                          background: 'rgba(139, 92, 246, 0.05)',
+                          padding: '0.5rem 1rem',
+                          borderRadius: '6px',
+                          display: 'inline-block'
+                        }}>
                           💵 Cuenta en Dólares
                         </h5>
                         <div className="account-info">
