@@ -75,6 +75,19 @@
   justify-content: center;
   gap: 0.25rem;
   min-height: 100%;
+  position: relative;
+}
+
+.day-number {
+  font-family: 'Playfair Display', 'Times New Roman', serif !important;
+  font-size: 4rem;
+  color: var(--color-purple) !important;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: -0.5rem;
 }
 
 .day-name, .time {
