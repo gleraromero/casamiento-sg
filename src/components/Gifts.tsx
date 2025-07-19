@@ -33,12 +33,12 @@ const Gifts: React.FC = () => {
 
                 <div className="gift-message text-center mb-5">
                   <p className="font-sans text-teal mb-3" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
-                    Para nosotros, lo más importante es compartir este momento especial con las personas que amamos. 
-                    Tu presencia y compañía son el regalo más valioso que podemos recibir.
+                    Lo que más nos importa es celebrar este momento con quienes queremos cerca. 
+                    Tu presencia y tus ganas de compartir con nosotros ya son el mejor regalo.
                   </p>
                   <p className="font-sans text-teal mb-4" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
-                    Sin embargo, si deseas hacernos un obsequio, agradecemos transferencias bancarias 
-                    que nos ayudarán a comenzar nuestra nueva vida juntos.
+                    Si aun así querés hacernos un mimo, podés ayudarnos con una transferencia: 
+                    todo lo que juntemos va directo a nuestra luna de miel ✈️💜
                   </p>
                 </div>
 
