@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Card, Form, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { Send, CheckCircle, XCircle } from 'lucide-react';
 import type { RSVPForm } from '../types';
 
@@ -62,18 +62,30 @@ const RSVP: React.FC = () => {
       <Container>
         <Row className="justify-content-center">
           <Col lg={8} md={10}>
-            <div className="text-center mb-5">
-              <h3 id="rsvp-title" className="font-serif text-purple mb-3" style={{ fontSize: '2rem' }}>
-                Confirmar Asistencia
-              </h3>
-              <div className="divider mx-auto mb-4" aria-hidden="true"></div>
-              <p className="font-sans text-teal mb-4" style={{ fontSize: '1.1rem' }}>
-                Por favor confirma tu asistencia para poder organizar todo perfectamente
-              </p>
-            </div>
+            <div className="elegant-rsvp-modal">
+              {/* Flores decorativas */}
+              <div className="rsvp-flowers">
+                <img 
+                  src="/flores-header.png" 
+                  alt="Flores decorativas" 
+                  className="rsvp-flowers-img"
+                />
+              </div>
+              
+              {/* Icono central */}
+              <div className="rsvp-icon">
+                <div className="rsvp-icon-circle">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="var(--color-teal-medium)"/>
+                    <circle cx="12" cy="12" r="8" stroke="var(--color-teal-medium)" strokeWidth="1" fill="none"/>
+                  </svg>
+                </div>
+              </div>
 
-            <Card className="rsvp-card border-0 shadow-sm">
-              <Card.Body className="p-5">
+              <div className="rsvp-content">
+                <h3 id="rsvp-title" className="rsvp-title">
+                  ¿Asistes a la ceremonia?
+                </h3>
                 {submitStatus === 'success' && (
                   <Alert variant="success" className="mb-4" role="alert" aria-live="polite">
                     <CheckCircle size={20} className="me-2" aria-hidden="true" />
@@ -198,13 +210,7 @@ const RSVP: React.FC = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn-custom"
-                      style={{
-                        backgroundColor: 'var(--color-purple-medium)',
-                        borderColor: 'var(--color-purple-medium)',
-                        padding: 'var(--spacing-sm) var(--spacing-xl)',
-                        fontSize: '1.1rem'
-                      }}
+                      className="rsvp-submit-btn"
                     >
                       {isSubmitting ? (
                         <>
@@ -214,14 +220,14 @@ const RSVP: React.FC = () => {
                       ) : (
                         <>
                           <Send size={18} className="me-2" />
-                          Confirmar Asistencia
+                          Enviar
                         </>
                       )}
                     </Button>
                   </div>
                 </Form>
-              </Card.Body>
-            </Card>
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>
