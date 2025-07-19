@@ -6,9 +6,9 @@ const EventDetails: React.FC = () => {
   const eventInfo = {
     date: 'Sábado 4 de Octubre de 2025',
     time: '18:30 hs',
-    location: 'Salón de Fiestas Elegante',
-    address: 'Av. Principal 1234, Buenos Aires',
-    coordinates: { lat: -34.6037, lng: -58.3816 }, // Buenos Aires
+    location: 'Janos',
+    address: 'Bartolomé Mitre 1265, Entre Talcahuano y Libertad.',
+    coordinates: { lat: -34.6037, lng: -58.3816 }, // Janos - Bartolomé Mitre 1265
   };
 
   const handleDirections = () => {
