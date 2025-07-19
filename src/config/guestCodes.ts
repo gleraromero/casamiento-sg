@@ -1,59 +1,48 @@
 interface GuestList {
   code: string;
   guests: string[];
-  description?: string;
 }
 
 export const guestCodes: GuestList[] = [
   {
     code: 'ABC123',
-    guests: ['Sofía García', 'Gonzalo Rodríguez'],
-    description: 'Familia García-Rodríguez'
+    guests: ['Sofía García', 'Gonzalo Rodríguez']
   },
   {
     code: 'DEF456',
-    guests: ['María López', 'Carlos Silva'],
-    description: 'Familia López-Silva'
+    guests: ['María López', 'Carlos Silva']
   },
   {
     code: 'GHI789',
-    guests: ['Ana Martínez', 'Pedro González', 'Lucía Fernández'],
-    description: 'Familia Martínez-González'
+    guests: ['Ana Martínez', 'Pedro González', 'Lucía Fernández']
   },
   {
     code: 'JKL012',
-    guests: ['Roberto Díaz', 'Carmen Ruiz'],
-    description: 'Familia Díaz-Ruiz'
+    guests: ['Roberto Díaz', 'Carmen Ruiz']
   },
   {
     code: 'MNO345',
-    guests: ['Diego Morales', 'Valentina Herrera'],
-    description: 'Familia Morales-Herrera'
+    guests: ['Diego Morales', 'Valentina Herrera']
   },
   {
     code: 'PQR678',
-    guests: ['Fernando Castro', 'Isabella Torres'],
-    description: 'Familia Castro-Torres'
+    guests: ['Fernando Castro', 'Isabella Torres']
   },
   {
     code: 'STU901',
-    guests: ['Miguel Vargas', 'Camila Jiménez'],
-    description: 'Familia Vargas-Jiménez'
+    guests: ['Miguel Vargas', 'Camila Jiménez']
   },
   {
     code: 'VWX234',
-    guests: ['Alejandro Rojas', 'Daniela Mendoza'],
-    description: 'Familia Rojas-Mendoza'
+    guests: ['Alejandro Rojas', 'Daniela Mendoza']
   },
   {
     code: 'YZA567',
-    guests: ['Gabriel Ortega', 'Natalia Vega'],
-    description: 'Familia Ortega-Vega'
+    guests: ['Gabriel Ortega', 'Natalia Vega']
   },
   {
     code: 'BCD890',
-    guests: ['Ricardo Flores', 'Paula Romero'],
-    description: 'Familia Flores-Romero'
+    guests: ['Ricardo Flores', 'Paula Romero']
   }
 ];
 
@@ -63,11 +52,7 @@ export const findGuestsByCode = (code: string): string[] | null => {
   return guestList ? guestList.guests : null;
 };
 
-// Función para obtener descripción por código
-export const getDescriptionByCode = (code: string): string | null => {
-  const guestList = guestCodes.find(list => list.code === code.toUpperCase());
-  return guestList ? guestList.description || null : null;
-};
+
 
 // Función para generar códigos únicos (para agregar más invitados)
 export const generateUniqueCode = (): string => {

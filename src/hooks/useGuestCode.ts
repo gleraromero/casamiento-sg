@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { findGuestsByCode, getDescriptionByCode } from '../config/guestCodes';
+import { findGuestsByCode } from '../config/guestCodes';
 
 interface Guest {
   name: string;
@@ -9,7 +9,6 @@ interface Guest {
 export const useGuestCode = () => {
   const [guests, setGuests] = useState<Guest[]>([]);
   const [guestCode, setGuestCode] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -21,7 +20,6 @@ export const useGuestCode = () => {
       try {
         // Buscar invitados por código
         const guestNames = findGuestsByCode(codeFromUrl);
-        const guestDescription = getDescriptionByCode(codeFromUrl);
         
         if (guestNames) {
           // Crear array de invitados
@@ -32,7 +30,6 @@ export const useGuestCode = () => {
           
           setGuests(guestList);
           setGuestCode(codeFromUrl.toUpperCase());
-          setDescription(guestDescription || '');
         } else {
           // Código no encontrado, usar invitados de ejemplo
           setGuests([
@@ -42,7 +39,6 @@ export const useGuestCode = () => {
             { name: 'Carlos Silva', attending: false }
           ]);
           setGuestCode('DEMO');
-          setDescription('Código de demostración');
         }
       } catch (error) {
         console.error('Error buscando el código de invitado:', error);
@@ -54,7 +50,6 @@ export const useGuestCode = () => {
           { name: 'Carlos Silva', attending: false }
         ]);
         setGuestCode('ERROR');
-        setDescription('Error al cargar invitados');
       }
     } else {
       // Si no hay código, usar invitados de ejemplo
@@ -65,7 +60,6 @@ export const useGuestCode = () => {
         { name: 'Carlos Silva', attending: false }
       ]);
       setGuestCode('DEMO');
-      setDescription('Código de demostración');
     }
     
     setIsLoading(false);
@@ -88,7 +82,6 @@ export const useGuestCode = () => {
   return {
     guests,
     guestCode,
-    description,
     isLoading,
     updateGuestAttendance,
     getAttendingCount,

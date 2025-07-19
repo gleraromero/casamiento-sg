@@ -4,7 +4,7 @@ import { Send, CheckCircle, XCircle, Users } from 'lucide-react';
 import { useGuestCode } from '../hooks/useGuestCode';
 
 const RSVP: React.FC = () => {
-  const { guests, guestCode, description, isLoading, updateGuestAttendance, getAttendingCount, getTotalCount } = useGuestCode();
+  const { guests, guestCode, isLoading, updateGuestAttendance, getAttendingCount, getTotalCount } = useGuestCode();
   const [comments, setComments] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -66,11 +66,6 @@ const RSVP: React.FC = () => {
                 <h3 id="rsvp-title" className="rsvp-title">
                   ¿Asistes a la ceremonia?
                 </h3>
-                {description && (
-                  <p className="rsvp-description mb-4">
-                    {description}
-                  </p>
-                )}
                 {submitStatus === 'success' && (
                   <Alert variant="success" className="mb-4" role="alert" aria-live="polite">
                     <CheckCircle size={20} className="me-2" aria-hidden="true" />
