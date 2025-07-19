@@ -4,7 +4,7 @@ import { Heart } from 'lucide-react';
 
 const Header: React.FC = () => {
   return (
-    <header className="header text-center py-5" role="banner" aria-label="Encabezado principal del casamiento">
+    <header className="header text-center" role="banner" aria-label="Encabezado principal del casamiento">
       <Container>
         <Row className="justify-content-center">
           <Col lg={8} md={10}>
@@ -43,7 +43,7 @@ const Header: React.FC = () => {
             </div>
             
             {/* Fecha */}
-            <div className="date-section">
+            <div className="date-section pb-4">
               <p className="font-sans text-teal mb-1" style={{ fontSize: '1.1rem' }}>
                 Sábado 4 de Octubre de 2025
               </p>
