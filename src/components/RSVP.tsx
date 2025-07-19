@@ -101,110 +101,58 @@ const RSVP: React.FC = () => {
                 )}
 
                 <Form onSubmit={handleSubmit}>
-                  <Row className="g-3">
-                    <Col md={6}>
-                      <Form.Group>
-                        <Form.Label className="font-serif text-purple">Nombre completo *</Form.Label>
+                  <div className="rsvp-form-simple">
+                    {/* Opciones de asistencia */}
+                    <div className="rsvp-options mb-4">
+                      <div className="d-flex justify-content-center gap-4">
+                        <Form.Check
+                          type="radio"
+                          name="attending"
+                          id="attending-yes"
+                          checked={formData.attending}
+                          onChange={() => setFormData(prev => ({ ...prev, attending: true }))}
+                          label="¡Sí, confirmo!"
+                          className="rsvp-radio"
+                        />
+                        <Form.Check
+                          type="radio"
+                          name="attending"
+                          id="attending-no"
+                          checked={!formData.attending}
+                          onChange={() => setFormData(prev => ({ ...prev, attending: false }))}
+                          label="No puedo :("
+                          className="rsvp-radio"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Campos de entrada */}
+                    <div className="rsvp-inputs">
+                      <Form.Group className="mb-3">
                         <Form.Control
                           type="text"
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
+                          placeholder="Ingrese su nombre completo"
                           required
-                          className="border-purple-light"
+                          className="rsvp-input"
                         />
                       </Form.Group>
-                    </Col>
 
-                    <Col md={6}>
-                      <Form.Group>
-                        <Form.Label className="font-serif text-purple">Email *</Form.Label>
-                        <Form.Control
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          required
-                          className="border-purple-light"
-                        />
-                      </Form.Group>
-                    </Col>
-
-                    <Col md={6}>
-                      <Form.Group>
-                        <Form.Label className="font-serif text-purple">¿Asistirás al casamiento? *</Form.Label>
-                        <div className="d-flex gap-3 mt-2">
-                          <Form.Check
-                            type="radio"
-                            name="attending"
-                            id="attending-yes"
-                            checked={formData.attending}
-                            onChange={() => setFormData(prev => ({ ...prev, attending: true }))}
-                            label="¡Sí, confirmo!"
-                            className="text-teal"
-                          />
-                          <Form.Check
-                            type="radio"
-                            name="attending"
-                            id="attending-no"
-                            checked={!formData.attending}
-                            onChange={() => setFormData(prev => ({ ...prev, attending: false }))}
-                            label="No puedo :("
-                            className="text-teal"
-                          />
-                        </div>
-                      </Form.Group>
-                    </Col>
-
-                    <Col md={6}>
-                      <Form.Group>
-                        <Form.Label className="font-serif text-purple">Número de invitados</Form.Label>
-                        <Form.Select
-                          name="guestCount"
-                          value={formData.guestCount}
-                          onChange={handleInputChange}
-                          disabled={!formData.attending}
-                          className="border-purple-light"
-                        >
-                          {[1, 2, 3, 4, 5].map(num => (
-                            <option key={num} value={num}>
-                              {num} {num === 1 ? 'persona' : 'personas'}
-                            </option>
-                          ))}
-                        </Form.Select>
-                      </Form.Group>
-                    </Col>
-
-                    <Col md={6}>
-                      <Form.Group>
-                        <Form.Label className="font-serif text-purple">Restricciones alimentarias</Form.Label>
-                        <Form.Control
-                          as="textarea"
-                          name="dietaryRestrictions"
-                          value={formData.dietaryRestrictions}
-                          onChange={handleInputChange}
-                          placeholder="Ej: vegetariano, sin gluten, alergias..."
-                          rows={3}
-                          className="border-purple-light"
-                        />
-                      </Form.Group>
-                    </Col>
-
-                    <Col md={6}>
-                      <Form.Group>
-                        <Form.Label className="font-serif text-purple">Comentarios adicionales</Form.Label>
+                      <Form.Group className="mb-4">
                         <Form.Control
                           as="textarea"
                           name="comments"
                           value={formData.comments}
                           onChange={handleInputChange}
-                          placeholder="Cualquier comentario o mensaje especial..."
-                          rows={3}
-                          className="border-purple-light"
+                          placeholder="Ingrese algún dato importante. Ej: Soy vegetariano"
+                          rows={2}
+                          className="rsvp-input"
                         />
                       </Form.Group>
-                    </Col>
-                  </Row>
+                    </div>
+                  </div>
 
                   <div className="text-center mt-4">
                     <Button
