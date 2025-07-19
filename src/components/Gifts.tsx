@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Gift, Heart, CreditCard } from 'lucide-react';
+import { Gift, CreditCard } from 'lucide-react';
 
 const Gifts: React.FC = () => {
   return (
@@ -112,17 +112,7 @@ const Gifts: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="text-center mt-5 pt-4" style={{ borderTop: '1px solid var(--color-purple-light)' }}>
-                  <Heart 
-                    size={24} 
-                    className="text-purple mb-3"
-                    style={{ color: 'var(--color-purple-medium)' }}
-                    fill="var(--color-purple-medium)"
-                  />
-                  <p className="font-sans text-gray" style={{ fontSize: '1rem', fontStyle: 'italic' }}>
-                    "Gracias por ser parte de nuestra historia de amor"
-                  </p>
-                </div>
+
               </Card.Body>
             </Card>
           </Col>
