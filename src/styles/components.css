@@ -510,9 +510,41 @@
 .dietary-options {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 0.75rem;
   margin-top: 0.75rem;
   border: 1px solid var(--color-teal-light);
+}
+
+.dietary-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.dietary-toggle:hover {
+  background-color: rgba(160, 136, 184, 0.1);
+}
+
+.dietary-toggle-text {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-teal-dark);
+  font-weight: 500;
+}
+
+.dietary-toggle-arrow {
+  font-size: 0.8rem;
+  color: var(--color-teal-medium);
+  transition: transform 0.2s ease;
+}
+
+.dietary-toggle-arrow.expanded {
+  transform: rotate(180deg);
 }
 
 .dietary-title {
@@ -528,6 +560,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-teal-light);
+  margin-top: 0.75rem;
 }
 
 .dietary-checkbox {

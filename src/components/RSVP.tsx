@@ -8,6 +8,15 @@ const RSVP: React.FC = () => {
   const [comments, setComments] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [expandedDietary, setExpandedDietary] = useState<number[]>([]);
+
+  const toggleDietaryExpansion = (guestIndex: number) => {
+    setExpandedDietary(prev => 
+      prev.includes(guestIndex) 
+        ? prev.filter(index => index !== guestIndex)
+        : [...prev, guestIndex]
+    );
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -122,73 +131,86 @@ const RSVP: React.FC = () => {
                               {/* Opciones de dieta - solo mostrar si confirma asistencia */}
                               {guest.attending && (
                                 <div className="dietary-options">
-                                  <h6 className="dietary-title mb-2">Preferencias de comida:</h6>
-                                  <div className="dietary-checkboxes">
-                                    <Form.Check
-                                      type="checkbox"
-                                      id={`diet-any-${index}`}
-                                      checked={guest.dietaryRestrictions.anyFood}
-                                      onChange={(e) => {
-                                        const newRestrictions = {
-                                          ...guest.dietaryRestrictions,
-                                          anyFood: e.target.checked,
-                                          // Si selecciona "cualquier comida", deseleccionar las otras
-                                          vegetarian: e.target.checked ? false : guest.dietaryRestrictions.vegetarian,
-                                          vegan: e.target.checked ? false : guest.dietaryRestrictions.vegan,
-                                          celiac: e.target.checked ? false : guest.dietaryRestrictions.celiac
-                                        };
-                                        updateGuestDietaryRestrictions(index, newRestrictions);
-                                      }}
-                                      label="Como cualquier cosa"
-                                      className="dietary-checkbox"
-                                    />
-                                    <Form.Check
-                                      type="checkbox"
-                                      id={`diet-vegetarian-${index}`}
-                                      checked={guest.dietaryRestrictions.vegetarian}
-                                      onChange={(e) => {
-                                        const newRestrictions = {
-                                          ...guest.dietaryRestrictions,
-                                          vegetarian: e.target.checked,
-                                          // Si selecciona vegetariano, deseleccionar "cualquier comida"
-                                          anyFood: e.target.checked ? false : guest.dietaryRestrictions.anyFood
-                                        };
-                                        updateGuestDietaryRestrictions(index, newRestrictions);
-                                      }}
-                                      label="Soy vegetariano/a"
-                                      className="dietary-checkbox"
-                                    />
-                                    <Form.Check
-                                      type="checkbox"
-                                      id={`diet-vegan-${index}`}
-                                      checked={guest.dietaryRestrictions.vegan}
-                                      onChange={(e) => {
-                                        const newRestrictions = {
-                                          ...guest.dietaryRestrictions,
-                                          vegan: e.target.checked,
-                                          // Si selecciona vegano, deseleccionar "cualquier comida"
-                                          anyFood: e.target.checked ? false : guest.dietaryRestrictions.anyFood
-                                        };
-                                        updateGuestDietaryRestrictions(index, newRestrictions);
-                                      }}
-                                      label="Soy vegano/a"
-                                      className="dietary-checkbox"
-                                    />
-                                    <Form.Check
-                                      type="checkbox"
-                                      id={`diet-celiac-${index}`}
-                                      checked={guest.dietaryRestrictions.celiac}
-                                      onChange={(e) => {
-                                        const newRestrictions = {
-                                          ...guest.dietaryRestrictions,
-                                          celiac: e.target.checked
-                                        };
-                                        updateGuestDietaryRestrictions(index, newRestrictions);
-                                      }}
-                                      label="Soy celíaco/a"
-                                      className="dietary-checkbox"
-                                    />
+                                  <div 
+                                    className="dietary-toggle"
+                                    onClick={() => toggleDietaryExpansion(index)}
+                                  >
+                                    <span className="dietary-toggle-text">
+                                      Soy vegetariano / vegano / celíaco
+                                    </span>
+                                    <span className={`dietary-toggle-arrow ${expandedDietary.includes(index) ? 'expanded' : ''}`}>
+                                      ▼
+                                    </span>
                                   </div>
+                                  
+                                  {expandedDietary.includes(index) && (
+                                    <div className="dietary-checkboxes">
+                                      <Form.Check
+                                        type="checkbox"
+                                        id={`diet-any-${index}`}
+                                        checked={guest.dietaryRestrictions.anyFood}
+                                        onChange={(e) => {
+                                          const newRestrictions = {
+                                            ...guest.dietaryRestrictions,
+                                            anyFood: e.target.checked,
+                                            // Si selecciona "cualquier comida", deseleccionar las otras
+                                            vegetarian: e.target.checked ? false : guest.dietaryRestrictions.vegetarian,
+                                            vegan: e.target.checked ? false : guest.dietaryRestrictions.vegan,
+                                            celiac: e.target.checked ? false : guest.dietaryRestrictions.celiac
+                                          };
+                                          updateGuestDietaryRestrictions(index, newRestrictions);
+                                        }}
+                                        label="Como cualquier cosa"
+                                        className="dietary-checkbox"
+                                      />
+                                      <Form.Check
+                                        type="checkbox"
+                                        id={`diet-vegetarian-${index}`}
+                                        checked={guest.dietaryRestrictions.vegetarian}
+                                        onChange={(e) => {
+                                          const newRestrictions = {
+                                            ...guest.dietaryRestrictions,
+                                            vegetarian: e.target.checked,
+                                            // Si selecciona vegetariano, deseleccionar "cualquier comida"
+                                            anyFood: e.target.checked ? false : guest.dietaryRestrictions.anyFood
+                                          };
+                                          updateGuestDietaryRestrictions(index, newRestrictions);
+                                        }}
+                                        label="Soy vegetariano/a"
+                                        className="dietary-checkbox"
+                                      />
+                                      <Form.Check
+                                        type="checkbox"
+                                        id={`diet-vegan-${index}`}
+                                        checked={guest.dietaryRestrictions.vegan}
+                                        onChange={(e) => {
+                                          const newRestrictions = {
+                                            ...guest.dietaryRestrictions,
+                                            vegan: e.target.checked,
+                                            // Si selecciona vegano, deseleccionar "cualquier comida"
+                                            anyFood: e.target.checked ? false : guest.dietaryRestrictions.anyFood
+                                          };
+                                          updateGuestDietaryRestrictions(index, newRestrictions);
+                                        }}
+                                        label="Soy vegano/a"
+                                        className="dietary-checkbox"
+                                      />
+                                      <Form.Check
+                                        type="checkbox"
+                                        id={`diet-celiac-${index}`}
+                                        checked={guest.dietaryRestrictions.celiac}
+                                        onChange={(e) => {
+                                          const newRestrictions = {
+                                            ...guest.dietaryRestrictions,
+                                            celiac: e.target.checked
+                                          };
+                                          updateGuestDietaryRestrictions(index, newRestrictions);
+                                        }}
+                                        label="Soy celíaco/a"
+                                        className="dietary-checkbox"
+                                      />
+                                    </div>
+                                  )}
                                 </div>
                               )}
                             </div>
