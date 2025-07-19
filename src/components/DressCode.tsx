@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Sparkles, User, Users, Heart, Star, Award } from 'lucide-react';
+import { Sparkles, User, Users, Heart, Award } from 'lucide-react';
 
 const DressCode: React.FC = () => {
   return (
@@ -50,54 +50,40 @@ const DressCode: React.FC = () => {
 
                     <div className="dress-options">
                       <div className="dress-option mb-3">
-                        <div className="d-flex align-items-center">
-                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
-                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                            Traje o blazer con pantalón
-                          </span>
-                        </div>
+                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                          Traje o blazer con pantalón
+                        </span>
                       </div>
                       <div className="dress-option mb-3">
-                        <div className="d-flex align-items-center">
-                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
-                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                            Camisa de vestir
-                          </span>
-                        </div>
+                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                          Camisa de vestir
+                        </span>
                       </div>
                       <div className="dress-option mb-3">
-                        <div className="d-flex align-items-center">
-                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
-                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                            Zapatos de vestir
-                          </span>
-                        </div>
+                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                          Zapatos de vestir
+                        </span>
                       </div>
                       <div className="dress-option">
-                        <div className="d-flex align-items-center">
-                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
-                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                            Corbata opcional
-                          </span>
-                        </div>
+                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                          Corbata opcional
+                        </span>
                       </div>
                     </div>
                     
                     {/* Imagen de ejemplo para ellos */}
                     <div className="dress-example-image mt-4">
-                      <div className="image-placeholder" style={{ 
-                        height: '200px', 
-                        background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(112, 160, 144, 0.1))',
-                        borderRadius: '12px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        border: '2px dashed rgba(139, 92, 246, 0.3)'
-                      }}>
-                        <span className="text-purple" style={{ color: 'var(--color-purple-medium)', fontSize: '0.9rem' }}>
-                          Imagen de ejemplo para ellos
-                        </span>
-                      </div>
+                      <img 
+                        src="/ejemplo-elegante-masculino.png" 
+                        alt="Ejemplo de vestimenta elegante para hombres"
+                        style={{ 
+                          width: '100%',
+                          height: 'auto',
+                          maxHeight: '300px',
+                          objectFit: 'contain',
+                          borderRadius: '12px'
+                        }}
+                      />
                     </div>
                   </Card.Body>
                 </Card>
@@ -127,54 +113,40 @@ const DressCode: React.FC = () => {
 
                     <div className="dress-options">
                       <div className="dress-option mb-3">
-                        <div className="d-flex align-items-center">
-                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
-                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                            Vestido cocktail
-                          </span>
-                        </div>
+                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                          Vestido cocktail
+                        </span>
                       </div>
                       <div className="dress-option mb-3">
-                        <div className="d-flex align-items-center">
-                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
-                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                            Conjunto elegante
-                          </span>
-                        </div>
+                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                          Conjunto elegante
+                        </span>
                       </div>
                       <div className="dress-option mb-3">
-                        <div className="d-flex align-items-center">
-                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
-                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                            Tacos o sandalias elegantes
-                          </span>
-                        </div>
+                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                          Tacos o sandalias elegantes
+                        </span>
                       </div>
                       <div className="dress-option">
-                        <div className="d-flex align-items-center">
-                          <Star size={16} className="text-purple me-3" style={{ color: 'var(--color-purple-medium)' }} />
-                          <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
-                            Accesorios sutiles
-                          </span>
-                        </div>
+                        <span className="font-sans text-teal" style={{ fontSize: '1rem' }}>
+                          Accesorios sutiles
+                        </span>
                       </div>
                     </div>
                     
                     {/* Imagen de ejemplo para ellas */}
                     <div className="dress-example-image mt-4">
-                      <div className="image-placeholder" style={{ 
-                        height: '200px', 
-                        background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(112, 160, 144, 0.1))',
-                        borderRadius: '12px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        border: '2px dashed rgba(139, 92, 246, 0.3)'
-                      }}>
-                        <span className="text-purple" style={{ color: 'var(--color-purple-medium)', fontSize: '0.9rem' }}>
-                          Imagen de ejemplo para ellas
-                        </span>
-                      </div>
+                      <img 
+                        src="/ejemplo-elegante-femenino.png" 
+                        alt="Ejemplo de vestimenta elegante para mujeres"
+                        style={{ 
+                          width: '100%',
+                          height: 'auto',
+                          maxHeight: '300px',
+                          objectFit: 'contain',
+                          borderRadius: '12px'
+                        }}
+                      />
                     </div>
                   </Card.Body>
                 </Card>
