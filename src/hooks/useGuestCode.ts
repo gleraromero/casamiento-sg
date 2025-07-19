@@ -4,6 +4,12 @@ import { findGuestsByCode } from '../config/guestCodes';
 interface Guest {
   name: string;
   attending: boolean;
+  dietaryRestrictions: {
+    anyFood: boolean;
+    vegetarian: boolean;
+    vegan: boolean;
+    celiac: boolean;
+  };
 }
 
 export const useGuestCode = () => {
@@ -25,7 +31,13 @@ export const useGuestCode = () => {
           // Crear array de invitados
           const guestList = guestNames.map(name => ({
             name: name.trim(),
-            attending: false
+            attending: false,
+            dietaryRestrictions: {
+              anyFood: true,
+              vegetarian: false,
+              vegan: false,
+              celiac: false
+            }
           }));
           
           setGuests(guestList);
@@ -33,10 +45,26 @@ export const useGuestCode = () => {
         } else {
           // Código no encontrado, usar invitados de ejemplo
           setGuests([
-            { name: 'Sofia Garcia', attending: false },
-            { name: 'Gonzalo Rodriguez', attending: false },
-            { name: 'Maria Lopez', attending: false },
-            { name: 'Carlos Silva', attending: false }
+            { 
+              name: 'Sofia Garcia', 
+              attending: false,
+              dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+            },
+            { 
+              name: 'Gonzalo Rodriguez', 
+              attending: false,
+              dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+            },
+            { 
+              name: 'Maria Lopez', 
+              attending: false,
+              dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+            },
+            { 
+              name: 'Carlos Silva', 
+              attending: false,
+              dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+            }
           ]);
           setGuestCode('DEMO');
         }
@@ -44,20 +72,52 @@ export const useGuestCode = () => {
         console.error('Error buscando el código de invitado:', error);
         // Si hay error, usar invitados de ejemplo
         setGuests([
-          { name: 'Sofia Garcia', attending: false },
-          { name: 'Gonzalo Rodriguez', attending: false },
-          { name: 'Maria Lopez', attending: false },
-          { name: 'Carlos Silva', attending: false }
+          { 
+            name: 'Sofia Garcia', 
+            attending: false,
+            dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+          },
+          { 
+            name: 'Gonzalo Rodriguez', 
+            attending: false,
+            dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+          },
+          { 
+            name: 'Maria Lopez', 
+            attending: false,
+            dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+          },
+          { 
+            name: 'Carlos Silva', 
+            attending: false,
+            dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+          }
         ]);
         setGuestCode('ERROR');
       }
     } else {
       // Si no hay código, usar invitados de ejemplo
       setGuests([
-        { name: 'Sofia Garcia', attending: false },
-        { name: 'Gonzalo Rodriguez', attending: false },
-        { name: 'Maria Lopez', attending: false },
-        { name: 'Carlos Silva', attending: false }
+        { 
+          name: 'Sofia Garcia', 
+          attending: false,
+          dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+        },
+        { 
+          name: 'Gonzalo Rodriguez', 
+          attending: false,
+          dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+        },
+        { 
+          name: 'Maria Lopez', 
+          attending: false,
+          dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+        },
+        { 
+          name: 'Carlos Silva', 
+          attending: false,
+          dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+        }
       ]);
       setGuestCode('DEMO');
     }
@@ -68,6 +128,17 @@ export const useGuestCode = () => {
   const updateGuestAttendance = (index: number, attending: boolean) => {
     setGuests(prev => prev.map((guest, i) => 
       i === index ? { ...guest, attending } : guest
+    ));
+  };
+
+  const updateGuestDietaryRestrictions = (index: number, restrictions: {
+    anyFood: boolean;
+    vegetarian: boolean;
+    vegan: boolean;
+    celiac: boolean;
+  }) => {
+    setGuests(prev => prev.map((guest, i) => 
+      i === index ? { ...guest, dietaryRestrictions: restrictions } : guest
     ));
   };
 
@@ -84,6 +155,7 @@ export const useGuestCode = () => {
     guestCode,
     isLoading,
     updateGuestAttendance,
+    updateGuestDietaryRestrictions,
     getAttendingCount,
     getTotalCount
   };
