@@ -74,7 +74,7 @@
 
 .day-name, .time {
   font-family: var(--font-script);
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: var(--color-purple) !important;
   font-weight: 400;
   text-align: center;
@@ -132,7 +132,7 @@
   }
   
   .day-name, .time {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   
   .month-abbr {
