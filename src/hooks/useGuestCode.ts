@@ -33,18 +33,18 @@ export const useGuestCode = () => {
         console.error('Error decodificando el código de invitado:', error);
         // Si hay error, usar invitados de ejemplo
         setGuests([
-          { name: 'Sofía García', attending: false },
-          { name: 'Gonzalo Rodríguez', attending: false },
-          { name: 'María López', attending: false },
+          { name: 'Sofia Garcia', attending: false },
+          { name: 'Gonzalo Rodriguez', attending: false },
+          { name: 'Maria Lopez', attending: false },
           { name: 'Carlos Silva', attending: false }
         ]);
       }
     } else {
       // Si no hay código, usar invitados de ejemplo
       setGuests([
-        { name: 'Sofía García', attending: false },
-        { name: 'Gonzalo Rodríguez', attending: false },
-        { name: 'María López', attending: false },
+        { name: 'Sofia Garcia', attending: false },
+        { name: 'Gonzalo Rodriguez', attending: false },
+        { name: 'Maria Lopez', attending: false },
         { name: 'Carlos Silva', attending: false }
       ]);
     }
