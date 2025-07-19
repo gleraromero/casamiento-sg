@@ -75,7 +75,7 @@
 .day-name, .time {
   font-family: var(--font-sans);
   font-size: 1.1rem;
-  color: var(--color-violet);
+  color: #6B46C1 !important;
   font-weight: 500;
   text-align: center;
 }
@@ -83,16 +83,16 @@
 .month-abbr {
   font-family: var(--font-sans);
   font-size: 1rem;
-  color: var(--color-violet);
+  color: #6B46C1 !important;
   font-weight: 600;
   text-align: center;
   letter-spacing: 1px;
 }
 
 .day-number {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', 'Times New Roman', serif !important;
   font-size: 4rem;
-  color: var(--color-violet);
+  color: #6B46C1 !important;
   font-weight: 400;
   text-align: center;
   line-height: 1;
