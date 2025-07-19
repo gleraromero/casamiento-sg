@@ -99,8 +99,8 @@ const EventDetails: React.FC = () => {
               {/* Mapa */}
               <Col lg={6} md={12}>
                 <Card className="map-card border-0 shadow-sm h-100">
-                  <Card.Body className="p-0">
-                    <div className="map-container" style={{ height: '400px', position: 'relative' }}>
+                  <Card.Body className="p-0 h-100">
+                    <div className="map-container h-100" style={{ position: 'relative' }}>
                       <iframe
                         src="https://maps.google.com/maps?q=Janos,Bartolomé+Mitre+1265,Buenos+Aires,Argentina&t=&z=15&ie=UTF8&iwloc=&output=embed"
                         width="100%"
