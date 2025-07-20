@@ -40,7 +40,7 @@ export const useGuestCode = () => {
             name: name.trim(),
             attending: true,
             dietaryRestrictions: {
-              anyFood: true,
+              anyFood: false,
               vegetarian: false,
               vegan: false,
               celiac: false
@@ -55,22 +55,22 @@ export const useGuestCode = () => {
             { 
               name: 'Sofia Garcia', 
               attending: true,
-              dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+              dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
             },
             { 
               name: 'Gonzalo Rodriguez', 
               attending: true,
-              dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+              dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
             },
             { 
               name: 'Maria Lopez', 
               attending: true,
-              dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+              dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
             },
             { 
               name: 'Carlos Silva', 
               attending: true,
-              dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+              dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
             }
           ]);
           setGuestCode('DEMO');
@@ -82,22 +82,22 @@ export const useGuestCode = () => {
           { 
             name: 'Sofia Garcia', 
             attending: true,
-            dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+            dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
           },
           { 
             name: 'Gonzalo Rodriguez', 
             attending: true,
-            dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+            dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
           },
           { 
             name: 'Maria Lopez', 
             attending: true,
-            dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+            dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
           },
           { 
             name: 'Carlos Silva', 
             attending: true,
-            dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+            dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
           }
         ]);
         setGuestCode('ERROR');
@@ -108,22 +108,22 @@ export const useGuestCode = () => {
         { 
           name: 'Sofia Garcia', 
           attending: true,
-          dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+          dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
         },
         { 
           name: 'Gonzalo Rodriguez', 
           attending: true,
-          dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+          dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
         },
         { 
           name: 'Maria Lopez', 
           attending: true,
-          dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+          dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
         },
         { 
           name: 'Carlos Silva', 
           attending: true,
-          dietaryRestrictions: { anyFood: true, vegetarian: false, vegan: false, celiac: false }
+          dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
         }
       ]);
       setGuestCode('DEMO');

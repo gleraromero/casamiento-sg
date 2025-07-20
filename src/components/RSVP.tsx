@@ -17,11 +17,11 @@ const RSVP: React.FC = () => {
     celiac: boolean;
   }) => {
     const options = [];
-    if (restrictions.anyFood) options.push('Sin restricciones');
     if (restrictions.vegetarian) options.push('Vegetariano');
     if (restrictions.vegan) options.push('Vegano');
     if (restrictions.celiac) options.push('Celíaco');
     
+    if (options.length === 0) return 'Sin restricciones';
     if (options.length === 1) return options[0];
     return options.join(' + ');
   };
@@ -177,42 +177,16 @@ const RSVP: React.FC = () => {
                                     <div className="dietary-checkboxes">
                                       <Form.Check
                                         type="checkbox"
-                                        id={`diet-any-${index}`}
-                                        checked={guest.dietaryRestrictions.anyFood}
-                                        onChange={(e) => {
-                                          const newRestrictions = {
-                                            ...guest.dietaryRestrictions,
-                                            anyFood: e.target.checked,
-                                            // Si selecciona "cualquier comida", deseleccionar las otras
-                                            vegetarian: e.target.checked ? false : guest.dietaryRestrictions.vegetarian,
-                                            vegan: e.target.checked ? false : guest.dietaryRestrictions.vegan,
-                                            celiac: e.target.checked ? false : guest.dietaryRestrictions.celiac
-                                          };
-                                          updateGuestDietaryRestrictions(index, newRestrictions);
-                                        }}
-                                        label="Sin restricciones"
-                                        className="dietary-checkbox"
-                                      />
-                                      <Form.Check
-                                        type="checkbox"
                                         id={`diet-vegetarian-${index}`}
                                         checked={guest.dietaryRestrictions.vegetarian}
                                         onChange={(e) => {
                                           const newRestrictions = {
                                             ...guest.dietaryRestrictions,
-                                            vegetarian: e.target.checked,
-                                            // Si selecciona vegetariano, deseleccionar "cualquier comida"
-                                            anyFood: e.target.checked ? false : guest.dietaryRestrictions.anyFood
+                                            vegetarian: e.target.checked
                                           };
-                                          
-                                          // Si se deselecciona vegetariano y no hay otras opciones seleccionadas, seleccionar "cualquier comida"
-                                          if (!e.target.checked && !newRestrictions.vegan && !newRestrictions.celiac) {
-                                            newRestrictions.anyFood = true;
-                                          }
-                                          
                                           updateGuestDietaryRestrictions(index, newRestrictions);
                                         }}
-                                        label="Soy vegetariano/a"
+                                        label="Vegetariano"
                                         className="dietary-checkbox"
                                       />
                                       <Form.Check
@@ -222,19 +196,11 @@ const RSVP: React.FC = () => {
                                         onChange={(e) => {
                                           const newRestrictions = {
                                             ...guest.dietaryRestrictions,
-                                            vegan: e.target.checked,
-                                            // Si selecciona vegano, deseleccionar "cualquier comida"
-                                            anyFood: e.target.checked ? false : guest.dietaryRestrictions.anyFood
+                                            vegan: e.target.checked
                                           };
-                                          
-                                          // Si se deselecciona vegano y no hay otras opciones seleccionadas, seleccionar "cualquier comida"
-                                          if (!e.target.checked && !newRestrictions.vegetarian && !newRestrictions.celiac) {
-                                            newRestrictions.anyFood = true;
-                                          }
-                                          
                                           updateGuestDietaryRestrictions(index, newRestrictions);
                                         }}
-                                        label="Soy vegano/a"
+                                        label="Vegano"
                                         className="dietary-checkbox"
                                       />
                                       <Form.Check
@@ -246,15 +212,9 @@ const RSVP: React.FC = () => {
                                             ...guest.dietaryRestrictions,
                                             celiac: e.target.checked
                                           };
-                                          
-                                          // Si se deselecciona celíaco y no hay otras opciones seleccionadas, seleccionar "cualquier comida"
-                                          if (!e.target.checked && !newRestrictions.vegetarian && !newRestrictions.vegan) {
-                                            newRestrictions.anyFood = true;
-                                          }
-                                          
                                           updateGuestDietaryRestrictions(index, newRestrictions);
                                         }}
-                                        label="Soy celíaco/a"
+                                        label="Celíaco"
                                         className="dietary-checkbox"
                                       />
                                     </div>
