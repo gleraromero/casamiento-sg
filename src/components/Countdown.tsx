@@ -25,9 +25,9 @@ const Countdown: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const CountdownItem: React.FC<{ value: number; label: string }> = ({ value, label }) => (
+  const CountdownItem: React.FC<{ value: number; label: string; delay: number }> = ({ value, label, delay }) => (
     <Col xs={6} sm={3} className="mb-3">
-      <div className="countdown-item" role="region" aria-label={`${value} ${label}`}>
+      <div className="countdown-item" role="region" aria-label={`${value} ${label}`} data-aos="zoom-in" data-aos-delay={delay}>
         <div 
           className="countdown-value font-serif text-purple" 
           aria-live="polite"
@@ -47,7 +47,7 @@ const Countdown: React.FC = () => {
       <Container>
         <Row className="justify-content-center">
           <Col lg={8} md={10}>
-            <div className="text-center mb-5">
+            <div className="text-center mb-5" data-aos="fade-down">
               <h3 className="countdown-title font-serif text-purple mb-3">
                 Falta
               </h3>
@@ -55,10 +55,10 @@ const Countdown: React.FC = () => {
             </div>
             
             <Row className="justify-content-center">
-              <CountdownItem value={countdown.days} label="días" />
-              <CountdownItem value={countdown.hours} label="horas" />
-              <CountdownItem value={countdown.minutes} label="min" />
-              <CountdownItem value={countdown.seconds} label="seg" />
+              <CountdownItem value={countdown.days} label="días" delay={200} />
+              <CountdownItem value={countdown.hours} label="horas" delay={400} />
+              <CountdownItem value={countdown.minutes} label="min" delay={600} />
+              <CountdownItem value={countdown.seconds} label="seg" delay={800} />
             </Row>
           </Col>
         </Row>

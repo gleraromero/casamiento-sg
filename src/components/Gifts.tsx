@@ -22,7 +22,7 @@ const Gifts: React.FC<GiftsProps> = ({ showToast }) => {
       <Container>
         <Row className="justify-content-center">
           <Col lg={8} md={10}>
-            <div className="text-center mb-5">
+            <div className="text-center mb-5" data-aos="fade-down">
               <h3 className="font-serif text-purple mb-3" style={{ fontSize: '2rem' }}>
                 Regalos
               </h3>
@@ -32,7 +32,7 @@ const Gifts: React.FC<GiftsProps> = ({ showToast }) => {
               </p>
             </div>
 
-            <Card className="gifts-card border-0 shadow-sm">
+            <Card className="gifts-card border-0 shadow-sm" data-aos="zoom-in" data-aos-delay="200">
               <Card.Body className="p-5">
                 <div className="text-center mb-4">
                   <Gift 

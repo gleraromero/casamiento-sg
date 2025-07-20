@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ToastContainer, Toast } from 'react-bootstrap';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import Layout from './components/Layout';
 import Header from './components/Header';
@@ -13,6 +15,17 @@ import Footer from './components/Footer';
 const App: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+
+  // Inicializar AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100,
+      delay: 0
+    });
+  }, []);
 
   const handleShowToast = (message: string) => {
     setToastMessage(message);

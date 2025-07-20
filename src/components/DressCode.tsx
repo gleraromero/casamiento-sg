@@ -8,7 +8,7 @@ const DressCode: React.FC = () => {
       <Container>
         <Row className="justify-content-center">
           <Col lg={10} md={12}>
-            <div className="text-center mb-5">
+            <div className="text-center mb-5" data-aos="fade-down">
               <div className="dress-code-header mb-4">
                 <Sparkles 
                   size={40} 
@@ -28,7 +28,7 @@ const DressCode: React.FC = () => {
             <Row className="g-4">
               {/* Para Ellos */}
               <Col lg={6} md={12}>
-                <Card className="dress-code-card border-0 shadow-lg h-100">
+                <Card className="dress-code-card border-0 shadow-lg h-100" data-aos="fade-right" data-aos-delay="200">
                   <Card.Body className="p-5">
                     <div className="dress-card-header text-center mb-4">
                       <div className="dress-icon-wrapper mb-3">
@@ -70,7 +70,7 @@ const DressCode: React.FC = () => {
 
               {/* Para Ellas */}
               <Col lg={6} md={12}>
-                <Card className="dress-code-card border-0 shadow-lg h-100">
+                <Card className="dress-code-card border-0 shadow-lg h-100" data-aos="fade-left" data-aos-delay="400">
                   <Card.Body className="p-5">
                     <div className="dress-card-header text-center mb-4">
                       <div className="dress-icon-wrapper mb-3">

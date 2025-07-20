@@ -1120,4 +1120,151 @@
     width: 14px !important;
     height: 14px !important;
   }
+}
+
+/* Animaciones personalizadas */
+[data-aos] {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animaciones específicas para elementos del header */
+.header [data-aos="fade-down"] {
+  transform: translateY(-30px);
+  opacity: 0;
+}
+
+.header [data-aos="fade-down"].aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header [data-aos="fade-up"] {
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.header [data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header [data-aos="zoom-in"] {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.header [data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Animaciones para el countdown */
+.countdown-item[data-aos="zoom-in"] {
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+.countdown-item[data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Animaciones para las cards */
+.card[data-aos="fade-right"] {
+  transform: translateX(-50px);
+  opacity: 0;
+}
+
+.card[data-aos="fade-right"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.card[data-aos="fade-left"] {
+  transform: translateX(50px);
+  opacity: 0;
+}
+
+.card[data-aos="fade-left"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.card[data-aos="zoom-in"] {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.card[data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Animaciones para el RSVP */
+.rsvp-flowers[data-aos="fade-down"] {
+  transform: translateY(-20px);
+  opacity: 0;
+}
+
+.rsvp-flowers[data-aos="fade-down"].aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.rsvp-icon[data-aos="zoom-in"] {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.rsvp-icon[data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.rsvp-content[data-aos="fade-up"] {
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.rsvp-content[data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Animaciones para el footer */
+.footer [data-aos="fade-up"] {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.footer [data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.footer [data-aos="zoom-in"] {
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+.footer [data-aos="zoom-in"].aos-animate {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Mejoras para dispositivos móviles */
+@media (max-width: 768px) {
+  [data-aos] {
+    transition-duration: 600ms !important;
+  }
+  
+  .header [data-aos="fade-down"],
+  .header [data-aos="fade-up"] {
+    transform: translateY(20px);
+  }
+  
+  .card[data-aos="fade-right"],
+  .card[data-aos="fade-left"] {
+    transform: translateX(30px);
+  }
 } 
