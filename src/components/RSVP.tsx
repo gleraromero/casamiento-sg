@@ -1,7 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
-import { Send, CheckCircle, XCircle, Users } from 'lucide-react';
+import { Send, CheckCircle, XCircle, Users, Edit3 } from 'lucide-react';
 import { useGuestCode } from '../hooks/useGuestCode';
+
+interface SavedRSVP {
+  guestCode: string;
+  guests: Array<{
+    name: string;
+    attending: boolean;
+    dietaryRestrictions: {
+      anyFood: boolean;
+      vegetarian: boolean;
+      vegan: boolean;
+      celiac: boolean;
+    };
+  }>;
+  comments: string;
+  attendingCount: number;
+  totalCount: number;
+  timestamp: string;
+}
 
 const RSVP: React.FC = () => {
   const { guests, guestCode, isLoading, updateGuestAttendance, updateGuestDietaryRestrictions, getAttendingCount, getTotalCount } = useGuestCode();
@@ -9,6 +27,25 @@ const RSVP: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [expandedDietary, setExpandedDietary] = useState<number[]>([]);
+  const [savedRSVP, setSavedRSVP] = useState<SavedRSVP | null>(null);
+  const [showForm, setShowForm] = useState(true);
+
+  // Verificar si ya se envió el RSVP al cargar el componente
+  useEffect(() => {
+    if (guestCode && !isLoading) {
+      const saved = localStorage.getItem(`rsvp_${guestCode}`);
+      if (saved) {
+        try {
+          const parsedRSVP = JSON.parse(saved) as SavedRSVP;
+          setSavedRSVP(parsedRSVP);
+          setShowForm(false);
+        } catch (error) {
+          console.error('Error parsing saved RSVP:', error);
+          localStorage.removeItem(`rsvp_${guestCode}`);
+        }
+      }
+    }
+  }, [guestCode, isLoading]);
 
   const getDietaryText = (restrictions: {
     anyFood: boolean;
@@ -32,6 +69,12 @@ const RSVP: React.FC = () => {
         ? prev.filter(index => index !== guestIndex)
         : [...prev, guestIndex]
     );
+  };
+
+  const handleChangeConfirmation = () => {
+    setShowForm(true);
+    setSavedRSVP(null);
+    localStorage.removeItem(`rsvp_${guestCode}`);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -67,6 +110,10 @@ const RSVP: React.FC = () => {
       // Con no-cors no podemos leer la respuesta, pero si llegamos aquí significa que se envió
       console.log('RSVP enviado exitosamente');
       
+      // Guardar en localStorage
+      localStorage.setItem(`rsvp_${guestCode}`, JSON.stringify(rsvpData));
+      setSavedRSVP(rsvpData);
+      setShowForm(false);
       setSubmitStatus('success');
     } catch (error) {
       console.error('Error al enviar RSVP:', error);
@@ -102,32 +149,94 @@ const RSVP: React.FC = () => {
               </div>
 
               <div className="rsvp-content">
-                <h3 id="rsvp-title" className="rsvp-title">
-                  {guests.length === 1 ? '¿Asistís a la ceremonia?' : '¿Asisten a la ceremonia?'}
-                </h3>
-                {submitStatus === 'success' && (
-                  <Alert variant="success" className="mb-4" role="alert" aria-live="polite">
-                    <CheckCircle size={20} className="me-2" aria-hidden="true" />
-                    ¡Gracias por confirmar tu asistencia! Te esperamos con mucha ilusión.
-                  </Alert>
-                )}
+                {isLoading ? (
+                  <div className="text-center py-4">
+                    <div className="spinner-border text-purple" role="status"></div>
+                    <p className="mt-2">Cargando invitados...</p>
+                  </div>
+                ) : savedRSVP && !showForm ? (
+                  // Pantalla de confirmación enviada
+                  <div className="rsvp-confirmation">
+                    <h3 className="rsvp-title">
+                      ¡Gracias por confirmar!
+                    </h3>
+                    
+                    <Alert variant="success" className="mb-4" role="alert">
+                      <CheckCircle size={20} className="me-2" />
+                      Tu confirmación ha sido enviada exitosamente.
+                    </Alert>
 
-                {submitStatus === 'error' && (
-                  <Alert variant="danger" className="mb-4" role="alert" aria-live="polite">
-                    <XCircle size={20} className="me-2" aria-hidden="true" />
-                    Hubo un error al enviar tu confirmación. Por favor intenta nuevamente.
-                  </Alert>
-                )}
-
-                <Form onSubmit={handleSubmit}>
-                  <div className="rsvp-form-simple">
-                    {isLoading ? (
-                      <div className="text-center py-4">
-                        <div className="spinner-border text-purple" role="status"></div>
-                        <p className="mt-2">Cargando invitados...</p>
+                    <div className="confirmation-details mb-4">
+                      <h5 className="text-center mb-3">
+                        <Users size={20} className="me-2" />
+                        Resumen de tu confirmación
+                      </h5>
+                      
+                      <div className="guests-summary">
+                        {savedRSVP.guests.map((guest, index) => (
+                          <div key={index} className="guest-summary-item mb-3">
+                            <div className="guest-summary-name">
+                              <strong>{guest.name}</strong>
+                            </div>
+                            <div className="guest-summary-status">
+                              {guest.attending ? (
+                                <span className="text-success">✅ Confirmado</span>
+                              ) : (
+                                <span className="text-danger">❌ No puede asistir</span>
+                              )}
+                            </div>
+                            {guest.attending && (
+                              <div className="guest-summary-dietary">
+                                <small className="text-muted">
+                                  Restricciones: {getDietaryText(guest.dietaryRestrictions)}
+                                </small>
+                              </div>
+                            )}
+                          </div>
+                        ))}
                       </div>
-                    ) : (
-                      <>
+
+                      {savedRSVP.comments && (
+                        <div className="comments-summary mt-3">
+                          <strong>Comentarios:</strong>
+                          <p className="text-muted mb-0">{savedRSVP.comments}</p>
+                        </div>
+                      )}
+
+                      <div className="summary-stats mt-3 text-center">
+                        <small className="text-muted">
+                          Confirmados: {savedRSVP.attendingCount} de {savedRSVP.totalCount}
+                        </small>
+                      </div>
+                    </div>
+
+                    <div className="text-center">
+                      <Button
+                        onClick={handleChangeConfirmation}
+                        variant="outline-primary"
+                        className="change-confirmation-btn"
+                      >
+                        <Edit3 size={18} className="me-2" />
+                        Quiero cambiar mi confirmación
+                      </Button>
+                    </div>
+                  </div>
+                ) : (
+                  // Formulario normal
+                  <>
+                    <h3 id="rsvp-title" className="rsvp-title">
+                      {guests.length === 1 ? '¿Asistís a la ceremonia?' : '¿Asisten a la ceremonia?'}
+                    </h3>
+                    
+                    {submitStatus === 'error' && (
+                      <Alert variant="danger" className="mb-4" role="alert" aria-live="polite">
+                        <XCircle size={20} className="me-2" aria-hidden="true" />
+                        Hubo un error al enviar tu confirmación. Por favor intenta nuevamente.
+                      </Alert>
+                    )}
+
+                    <Form onSubmit={handleSubmit}>
+                      <div className="rsvp-form-simple">
                         {/* Lista de invitados */}
                         <div className="guests-list mb-4">
                           <h5 className="text-center mb-3">
@@ -238,30 +347,30 @@ const RSVP: React.FC = () => {
                             />
                           </Form.Group>
                         </div>
-                      </>
-                    )}
-                  </div>
+                      </div>
 
-                  <div className="text-center mt-4">
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="rsvp-submit-btn"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="spinner-border spinner-border-sm me-2" role="status"></div>
-                          Enviando...
-                        </>
-                      ) : (
-                        <>
-                          <Send size={18} className="me-2" />
-                          Enviar
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                </Form>
+                      <div className="text-center mt-4">
+                        <Button
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="rsvp-submit-btn"
+                        >
+                          {isSubmitting ? (
+                            <>
+                              <div className="spinner-border spinner-border-sm me-2" role="status"></div>
+                              Enviando...
+                            </>
+                          ) : (
+                            <>
+                              <Send size={18} className="me-2" />
+                              Enviar
+                            </>
+                          )}
+                        </Button>
+                      </div>
+                    </Form>
+                  </>
+                )}
               </div>
             </div>
           </Col>
