@@ -1,8 +1,23 @@
-import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Gift, CreditCard } from 'lucide-react';
+import React, { useState } from 'react';
+import { Container, Row, Col, Card, Toast, ToastContainer } from 'react-bootstrap';
+import { Gift, CreditCard, Copy, Check } from 'lucide-react';
 
 const Gifts: React.FC = () => {
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+
+  const copyToClipboard = async (text: string, label: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setToastMessage(`${label} copiado al portapapeles`);
+      setShowToast(true);
+    } catch (err) {
+      console.error('Error al copiar:', err);
+      setToastMessage('Error al copiar al portapapeles');
+      setShowToast(true);
+    }
+  };
+
   return (
     <section className="gifts-section py-5">
       <Container>
@@ -67,9 +82,29 @@ const Gifts: React.FC = () => {
                         </h5>
                         <div className="account-info">
                           <h6 className="font-serif text-purple mb-2">Alias</h6>
-                          <p className="font-sans text-teal mb-3" style={{ fontSize: '1.1rem', fontWeight: '600', fontFamily: 'monospace' }}>
+                          <div 
+                            className="clickable-alias"
+                            onClick={() => copyToClipboard('glr-bbva', 'Alias en pesos')}
+                            style={{ 
+                              fontSize: '1.1rem', 
+                              fontWeight: '600', 
+                              fontFamily: 'monospace',
+                              cursor: 'pointer',
+                              padding: '0.5rem',
+                              borderRadius: '6px',
+                              transition: 'all 0.2s ease',
+                              display: 'inline-block'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = 'transparent';
+                            }}
+                          >
                             glr-bbva
-                          </p>
+                            <Copy size={16} className="ms-2" style={{ opacity: 0.6 }} />
+                          </div>
                           <h6 className="font-serif text-purple mb-2">Número de Cuenta</h6>
                           <p className="font-sans text-teal mb-3" style={{ fontSize: '1rem', fontFamily: 'monospace' }}>
                             106-30454/5
@@ -92,9 +127,29 @@ const Gifts: React.FC = () => {
                         </h5>
                         <div className="account-info">
                           <h6 className="font-serif text-purple mb-2">Alias</h6>
-                          <p className="font-sans text-teal mb-3" style={{ fontSize: '1.1rem', fontWeight: '600', fontFamily: 'monospace' }}>
+                          <div 
+                            className="clickable-alias"
+                            onClick={() => copyToClipboard('glr.sch.bbva.usd', 'Alias en dólares')}
+                            style={{ 
+                              fontSize: '1.1rem', 
+                              fontWeight: '600', 
+                              fontFamily: 'monospace',
+                              cursor: 'pointer',
+                              padding: '0.5rem',
+                              borderRadius: '6px',
+                              transition: 'all 0.2s ease',
+                              display: 'inline-block'
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = 'rgba(139, 92, 246, 0.1)';
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = 'transparent';
+                            }}
+                          >
                             glr.sch.bbva.usd
-                          </p>
+                            <Copy size={16} className="ms-2" style={{ opacity: 0.6 }} />
+                          </div>
                           <h6 className="font-serif text-purple mb-2">Número de Cuenta</h6>
                           <p className="font-sans text-teal mb-3" style={{ fontSize: '1rem', fontFamily: 'monospace' }}>
                             317-714938/7
@@ -118,6 +173,26 @@ const Gifts: React.FC = () => {
           </Col>
         </Row>
       </Container>
+
+      {/* Toast de confirmación */}
+      <ToastContainer position="bottom-end" className="p-3">
+        <Toast 
+          show={showToast} 
+          onClose={() => setShowToast(false)}
+          delay={3000}
+          autohide
+          bg="success"
+          className="text-white"
+        >
+          <Toast.Header closeButton>
+            <Check size={16} className="me-2" />
+            <strong className="me-auto">¡Copiado!</strong>
+          </Toast.Header>
+          <Toast.Body>
+            {toastMessage}
+          </Toast.Body>
+        </Toast>
+      </ToastContainer>
     </section>
   );
 };

@@ -1064,4 +1064,52 @@
     padding: 10px 25px !important;
     font-size: 0.9rem !important;
   }
+}
+
+/* Alias clickeables */
+.clickable-alias {
+  color: var(--color-teal-dark) !important;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.clickable-alias:hover {
+  border-color: var(--color-purple-light);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15);
+}
+
+.clickable-alias:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(139, 92, 246, 0.2);
+}
+
+.clickable-alias svg {
+  transition: opacity 0.2s ease;
+}
+
+.clickable-alias:hover svg {
+  opacity: 1 !important;
+}
+
+/* Toast personalizado */
+.toast {
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.toast-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 576px) {
+  .clickable-alias {
+    font-size: 1rem !important;
+    padding: 0.4rem !important;
+  }
+  
+  .clickable-alias svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
 } 
