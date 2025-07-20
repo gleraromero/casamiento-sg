@@ -130,7 +130,7 @@ const RSVP: React.FC = () => {
           <Col lg={8} md={10}>
             <div className="elegant-rsvp-modal">
               {/* Flores decorativas */}
-              <div className="rsvp-flowers" data-aos="fade-down" data-aos-delay="200">
+              <div className="rsvp-flowers" data-aos="fade-down" data-aos-delay="100">
                 <img 
                   src="/flores-asistencia.png" 
                   alt="Flores decorativas" 
@@ -139,7 +139,7 @@ const RSVP: React.FC = () => {
               </div>
               
               {/* Icono central */}
-              <div className="rsvp-icon" data-aos="zoom-in" data-aos-delay="400">
+              <div className="rsvp-icon" data-aos="zoom-in" data-aos-delay="200">
                 <div className="rsvp-icon-circle">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="var(--color-teal-medium)"/>
@@ -148,7 +148,7 @@ const RSVP: React.FC = () => {
                 </div>
               </div>
 
-              <div className="rsvp-content" data-aos="fade-up" data-aos-delay="600">
+              <div className="rsvp-content" data-aos="fade-up" data-aos-delay="300">
                 {isLoading ? (
                   <div className="text-center py-4">
                     <div className="spinner-border text-purple" role="status"></div>

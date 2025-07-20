@@ -1255,7 +1255,7 @@
 /* Mejoras para dispositivos móviles */
 @media (max-width: 768px) {
   [data-aos] {
-    transition-duration: 600ms !important;
+    transition-duration: 400ms !important;
   }
   
   .header [data-aos="fade-down"],

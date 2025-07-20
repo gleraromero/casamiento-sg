@@ -9,7 +9,7 @@ const Header: React.FC = () => {
         <Row className="justify-content-center">
           <Col lg={8} md={10}>
             {/* Flores decorativas */}
-            <div className="header-flowers mb-4" data-aos="fade-down" data-aos-delay="200">
+            <div className="header-flowers mb-4" data-aos="fade-down" data-aos-delay="100">
                               <img 
                   src="/flores-header.png" 
                   alt="Flores decorativas" 
@@ -18,12 +18,12 @@ const Header: React.FC = () => {
             </div>
             
             {/* Título principal */}
-            <h1 className="font-script text-purple mb-3" style={{ fontSize: '3.5rem' }} data-aos="fade-up" data-aos-delay="400">
+            <h1 className="font-script text-purple mb-3" style={{ fontSize: '3.5rem' }} data-aos="fade-up" data-aos-delay="200">
               ¡Nos casamos!
             </h1>
             
             {/* Imagen de los novios */}
-            <div className="novios-image-container mb-4" data-aos="zoom-in" data-aos-delay="600">
+            <div className="novios-image-container mb-4" data-aos="zoom-in" data-aos-delay="300">
                               <img 
                   src="/novios.png" 
                   alt="Sofía y Gonzalo" 
@@ -32,7 +32,7 @@ const Header: React.FC = () => {
             </div>
             
             {/* Nombres */}
-            <div className="names-section mb-4" data-aos="fade-up" data-aos-delay="800">
+            <div className="names-section mb-4" data-aos="fade-up" data-aos-delay="400">
               <h2 className="font-serif text-purple mb-2" style={{ fontSize: '2.5rem', fontWeight: 600 }}>
                 Sofía
               </h2>
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
             </div>
             
             {/* Fecha estilizada */}
-            <div className="styled-date-section pb-4" data-aos="fade-up" data-aos-delay="1000">
+            <div className="styled-date-section pb-4" data-aos="fade-up" data-aos-delay="500">
               <div className="date-display">
                 <div className="date-left">
                   <div className="decorative-line">

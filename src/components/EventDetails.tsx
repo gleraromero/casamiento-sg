@@ -32,7 +32,7 @@ const EventDetails: React.FC = () => {
             <Row className="g-4">
               {/* Información del evento */}
               <Col lg={6} md={12}>
-                <Card className="event-info-card border-0 shadow-sm h-100" data-aos="fade-right" data-aos-delay="200">
+                <Card className="event-info-card border-0 shadow-sm h-100" data-aos="fade-right" data-aos-delay="100">
                   <Card.Body className="p-4">
                     <div className="event-item mb-4">
                       <div className="d-flex align-items-center mb-2">
@@ -94,7 +94,7 @@ const EventDetails: React.FC = () => {
 
               {/* Mapa */}
               <Col lg={6} md={12}>
-                <Card className="map-card border-0 shadow-sm h-100" data-aos="fade-left" data-aos-delay="400">
+                <Card className="map-card border-0 shadow-sm h-100" data-aos="fade-left" data-aos-delay="200">
                   <Card.Body className="p-0 h-100">
                     <div className="map-container h-100" style={{ position: 'relative' }}>
                       <iframe

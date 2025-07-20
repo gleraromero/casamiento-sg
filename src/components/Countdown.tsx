@@ -55,10 +55,10 @@ const Countdown: React.FC = () => {
             </div>
             
             <Row className="justify-content-center">
-              <CountdownItem value={countdown.days} label="días" delay={200} />
-              <CountdownItem value={countdown.hours} label="horas" delay={400} />
-              <CountdownItem value={countdown.minutes} label="min" delay={600} />
-              <CountdownItem value={countdown.seconds} label="seg" delay={800} />
+              <CountdownItem value={countdown.days} label="días" delay={100} />
+              <CountdownItem value={countdown.hours} label="horas" delay={200} />
+              <CountdownItem value={countdown.minutes} label="min" delay={300} />
+              <CountdownItem value={countdown.seconds} label="seg" delay={400} />
             </Row>
           </Col>
         </Row>

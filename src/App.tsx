@@ -19,10 +19,10 @@ const App: React.FC = () => {
   // Inicializar AOS
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
+      duration: 500,
+      easing: 'ease-out',
       once: true,
-      offset: 100,
+      offset: 80,
       delay: 0
     });
   }, []);

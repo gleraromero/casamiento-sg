@@ -32,7 +32,7 @@ const Gifts: React.FC<GiftsProps> = ({ showToast }) => {
               </p>
             </div>
 
-            <Card className="gifts-card border-0 shadow-sm" data-aos="zoom-in" data-aos-delay="200">
+            <Card className="gifts-card border-0 shadow-sm" data-aos="zoom-in" data-aos-delay="100">
               <Card.Body className="p-5">
                 <div className="text-center mb-4">
                   <Gift 
