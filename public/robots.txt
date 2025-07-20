@@ -1,0 +1,39 @@
+User-agent: *
+Disallow: /
+
+# Bloquear todos los robots de búsqueda
+User-agent: Googlebot
+Disallow: /
+
+User-agent: Bingbot
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: DuckDuckBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: facebookexternalhit
+Disallow: /
+
+User-agent: Twitterbot
+Disallow: /
+
+User-agent: LinkedInBot
+Disallow: /
+
+User-agent: WhatsApp
+Disallow: /
+
+# No permitir indexación de ninguna página
+Noindex: /
+
+# Sitemap (opcional, pero no necesario ya que no queremos indexación)
+# Sitemap: https://gleraromero.github.io/casamiento-sg/sitemap.xml 
