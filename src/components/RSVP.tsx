@@ -17,7 +17,7 @@ const RSVP: React.FC = () => {
     celiac: boolean;
   }) => {
     const options = [];
-    if (restrictions.anyFood) options.push('No tengo restricciones dietarias');
+    if (restrictions.anyFood) options.push('Sin restricciones');
     if (restrictions.vegetarian) options.push('Vegetariano');
     if (restrictions.vegan) options.push('Vegano');
     if (restrictions.celiac) options.push('Celíaco');
@@ -137,7 +137,7 @@ const RSVP: React.FC = () => {
                           {guests.map((guest, index) => (
                             <div key={index} className="guest-item mb-4">
                               <div className="guest-name">{guest.name}</div>
-                              <div className="guest-options mb-3">
+                              <div className="guest-options mb-3 d-flex flex-wrap gap-3">
                                 <Form.Check
                                   type="radio"
                                   name={`guest-${index}`}
@@ -190,7 +190,7 @@ const RSVP: React.FC = () => {
                                           };
                                           updateGuestDietaryRestrictions(index, newRestrictions);
                                         }}
-                                        label="No tengo restricciones dietarias"
+                                        label="Sin restricciones"
                                         className="dietary-checkbox"
                                       />
                                       <Form.Check

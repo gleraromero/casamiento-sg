@@ -916,4 +916,60 @@
   .header h2 {
     font-size: 1.5rem !important;
   }
+  
+  /* RSVP Mobile Optimizations */
+  .elegant-rsvp-modal {
+    padding: 1.5rem 1rem;
+    margin: 0 0.5rem;
+  }
+  
+  .rsvp-title {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .guest-item {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .guest-name {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .guest-options {
+    gap: 1rem !important;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .guest-options .rsvp-radio {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  
+  .dietary-toggle {
+    padding: 0.25rem 0.4rem;
+    min-height: 28px;
+  }
+  
+  .dietary-toggle-text {
+    font-size: 0.8rem;
+  }
+  
+  .dietary-checkboxes {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  
+  .dietary-checkbox {
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .rsvp-submit-btn {
+    padding: 10px 30px !important;
+    font-size: 1rem !important;
+  }
 } 
