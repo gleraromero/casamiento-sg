@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sofía & Gonzalo - Nuestra Boda</title>
-    <link rel="icon" type="image/png" href="/casamiento-sg/favico.png">
+    <link rel="icon" type="image/png" href="/favico.png">
     <script>
         // Obtener la ruta actual
         const path = window.location.pathname;
         
         // Si la ruta no es la raíz, redirigir al index con la ruta como parámetro
-        if (path !== '/casamiento-sg/' && path !== '/casamiento-sg/index.html') {
+        if (path !== '/' && path !== '/index.html') {
             // Extraer el código de invitado de la URL
-            const guestCode = path.replace('/casamiento-sg/', '').replace('/', '');
+            const guestCode = path.replace('/', '').replace('/', '');
             
             // Redirigir al index con el código como parámetro
-            window.location.href = '/casamiento-sg/?code=' + encodeURIComponent(guestCode);
+            window.location.href = '/?code=' + encodeURIComponent(guestCode);
         } else {
             // Si es la raíz, solo cargar normalmente
-            window.location.href = '/casamiento-sg/';
+            window.location.href = '/';
         }
     </script>
 </head>
