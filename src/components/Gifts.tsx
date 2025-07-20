@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card, Toast, ToastContainer } from 'react-bootstrap';
-import { Gift, CreditCard, Copy, Check } from 'lucide-react';
+import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Gift, CreditCard, Copy } from 'lucide-react';
 
-const Gifts: React.FC = () => {
-  const [showToast, setShowToast] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
+interface GiftsProps {
+  showToast: (message: string) => void;
+}
 
+const Gifts: React.FC<GiftsProps> = ({ showToast }) => {
   const copyToClipboard = async (text: string, label: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      setToastMessage(`${label} copiado al portapapeles`);
-      setShowToast(true);
+      showToast(`${label} copiado al portapapeles`);
     } catch (err) {
       console.error('Error al copiar:', err);
-      setToastMessage('Error al copiar al portapapeles');
-      setShowToast(true);
+      showToast('Error al copiar al portapapeles');
     }
   };
 
@@ -173,26 +172,6 @@ const Gifts: React.FC = () => {
           </Col>
         </Row>
       </Container>
-
-      {/* Toast de confirmación */}
-      <ToastContainer position="bottom-end" className="p-3">
-        <Toast 
-          show={showToast} 
-          onClose={() => setShowToast(false)}
-          delay={3000}
-          autohide
-          bg="success"
-          className="text-white"
-        >
-          <Toast.Header closeButton>
-            <Check size={16} className="me-2" />
-            <strong className="me-auto">¡Copiado!</strong>
-          </Toast.Header>
-          <Toast.Body>
-            {toastMessage}
-          </Toast.Body>
-        </Toast>
-      </ToastContainer>
     </section>
   );
 };
