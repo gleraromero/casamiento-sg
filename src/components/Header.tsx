@@ -11,7 +11,7 @@ const Header: React.FC = () => {
             {/* Flores decorativas */}
             <div className="header-flowers mb-4">
                               <img 
-                  src="/casamiento-sg/flores-header.png" 
+                  src="/flores-header.png" 
                   alt="Flores decorativas" 
                   className="header-flowers-img"
                 />
@@ -25,7 +25,7 @@ const Header: React.FC = () => {
             {/* Imagen de los novios */}
             <div className="novios-image-container mb-4">
                               <img 
-                  src="/casamiento-sg/novios.png" 
+                  src="/novios.png" 
                   alt="Sofía y Gonzalo" 
                   className="novios-image"
                 />
