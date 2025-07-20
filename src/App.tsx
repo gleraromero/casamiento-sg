@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ToastContainer, Toast } from 'react-bootstrap';
-import { Check } from 'lucide-react';
+
 import Layout from './components/Layout';
 import Header from './components/Header';
 import Countdown from './components/Countdown';
@@ -45,16 +45,11 @@ const App: React.FC = () => {
         <Toast 
           show={showToast} 
           onClose={() => setShowToast(false)}
-          delay={3000}
+          delay={2500}
           autohide
-          bg="success"
-          className="text-white"
+          className="custom-toast"
         >
-          <Toast.Header closeButton>
-            <Check size={16} className="me-2" />
-            <strong className="me-auto">¡Copiado!</strong>
-          </Toast.Header>
-          <Toast.Body>
+          <Toast.Body className="text-center py-2">
             {toastMessage}
           </Toast.Body>
         </Toast>

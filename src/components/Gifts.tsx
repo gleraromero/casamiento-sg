@@ -7,10 +7,10 @@ interface GiftsProps {
 }
 
 const Gifts: React.FC<GiftsProps> = ({ showToast }) => {
-  const copyToClipboard = async (text: string, label: string) => {
+  const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      showToast(`${label} copiado al portapapeles`);
+      showToast('¡Copiado! Gracias por pensar en nosotros');
     } catch (err) {
       console.error('Error al copiar:', err);
       showToast('Error al copiar al portapapeles');
@@ -83,7 +83,7 @@ const Gifts: React.FC<GiftsProps> = ({ showToast }) => {
                           <h6 className="font-serif text-purple mb-2">Alias</h6>
                           <div 
                             className="clickable-alias"
-                            onClick={() => copyToClipboard('glr-bbva', 'Alias en pesos')}
+                            onClick={() => copyToClipboard('glr-bbva')}
                             style={{ 
                               fontSize: '1.1rem', 
                               fontWeight: '600', 
@@ -128,7 +128,7 @@ const Gifts: React.FC<GiftsProps> = ({ showToast }) => {
                           <h6 className="font-serif text-purple mb-2">Alias</h6>
                           <div 
                             className="clickable-alias"
-                            onClick={() => copyToClipboard('glr.sch.bbva.usd', 'Alias en dólares')}
+                            onClick={() => copyToClipboard('glr.sch.bbva.usd')}
                             style={{ 
                               fontSize: '1.1rem', 
                               fontWeight: '600', 
