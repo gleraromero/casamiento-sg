@@ -49,8 +49,8 @@ const CodeEntry: React.FC<CodeEntryProps> = ({ onCodeValid }) => {
             <img 
               src="/novios.png" 
               alt="Sofia & Gonzalo" 
-              className="img-fluid rounded-circle mb-3"
-              style={{ width: '120px', height: '120px', objectFit: 'cover' }}
+              className="img-fluid mb-3"
+              style={{ maxWidth: '200px', height: 'auto' }}
             />
             <h1 className="h2 text-dark mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
               Sofia & Gonzalo
@@ -68,7 +68,7 @@ const CodeEntry: React.FC<CodeEntryProps> = ({ onCodeValid }) => {
                 type="text"
                 value={code}
                 onChange={(e) => setCode(e.target.value.toUpperCase())}
-                placeholder="Ej: GS1"
+                placeholder=""
                 className="text-center h4 py-3"
                 style={{ 
                   fontSize: '1.5rem',
@@ -103,13 +103,6 @@ const CodeEntry: React.FC<CodeEntryProps> = ({ onCodeValid }) => {
               {isLoading ? 'Verificando...' : 'Continuar'}
             </Button>
           </Form>
-
-          {/* Información adicional */}
-          <div className="mt-4 pt-4 border-top">
-            <p className="text-muted small mb-0">
-              ¿No tienes tu código? Contacta a los novios
-            </p>
-          </div>
         </div>
       </Container>
     </div>
