@@ -9,11 +9,36 @@ interface GiftsProps {
 const Gifts: React.FC<GiftsProps> = ({ showToast }) => {
   const copyToClipboard = async (text: string) => {
     try {
-      await navigator.clipboard.writeText(text);
-      showToast('¡Copiado! Gracias por pensar en nosotros');
+      // Try modern clipboard API first
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        showToast('¡Copiado! Gracias por pensar en nosotros');
+        return;
+      }
+      
+      // Fallback for older browsers and iOS
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-999999px';
+      textArea.style.top = '-999999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      
+      const successful = document.execCommand('copy');
+      document.body.removeChild(textArea);
+      
+      if (successful) {
+        showToast('¡Copiado! Gracias por pensar en nosotros');
+      } else {
+        // For iOS, show the text so user can manually copy
+        showToast(`Alias: ${text} (cópialo manualmente)`);
+      }
     } catch (err) {
       console.error('Error al copiar:', err);
-      showToast('Error al copiar al portapapeles');
+      // Show the text for manual copy on error
+      showToast(`Alias: ${text} (cópialo manualmente)`);
     }
   };
 

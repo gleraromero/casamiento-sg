@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { Send, CheckCircle, XCircle, Users, Edit3 } from 'lucide-react';
 import { useGuestCode } from '../hooks/useGuestCode';
+import alianzasImage from '../assets/alianzas.png';
 
 interface SavedRSVP {
   guestCode: string;
@@ -141,10 +142,15 @@ const RSVP: React.FC = () => {
               {/* Icono central */}
               <div className="rsvp-icon" data-aos="zoom-in" data-aos-delay="200">
                 <div className="rsvp-icon-circle">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="var(--color-teal-medium)"/>
-                    <circle cx="12" cy="12" r="8" stroke="var(--color-teal-medium)" strokeWidth="1" fill="none"/>
-                  </svg>
+                  <img 
+                    src={alianzasImage} 
+                    alt="Alianzas" 
+                    style={{ 
+                      width: '24px', 
+                      height: '24px',
+                      objectFit: 'contain'
+                    }}
+                  />
                 </div>
               </div>
 
@@ -341,7 +347,7 @@ const RSVP: React.FC = () => {
                               as="textarea"
                               value={comments}
                               onChange={(e) => setComments(e.target.value)}
-                              placeholder="Ingrese algún dato importante"
+                              placeholder="Contanos si tenés alguna otra restricción alimentaria"
                               rows={2}
                               className="rsvp-input"
                             />
