@@ -16,6 +16,7 @@ export const useGuestCode = () => {
   const [guests, setGuests] = useState<Guest[]>([]);
   const [guestCode, setGuestCode] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
+  const [isValidCode, setIsValidCode] = useState<boolean | null>(null);
 
   useEffect(() => {
     // Obtener el código de invitado de la URL (tanto de path como de query params)
@@ -35,7 +36,7 @@ export const useGuestCode = () => {
         const guestNames = findGuestsByCode(codeFromUrl);
         
         if (guestNames) {
-          // Crear array de invitados
+          // Código válido
           const guestList = guestNames.map(name => ({
             name: name.trim(),
             attending: true,
@@ -49,88 +50,60 @@ export const useGuestCode = () => {
           
           setGuests(guestList);
           setGuestCode(codeFromUrl.toUpperCase());
+          setIsValidCode(true);
         } else {
-          // Código no encontrado, usar invitados de ejemplo
-          setGuests([
-            { 
-              name: 'Sofia Garcia', 
-              attending: true,
-              dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-            },
-            { 
-              name: 'Gonzalo Rodriguez', 
-              attending: true,
-              dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-            },
-            { 
-              name: 'Maria Lopez', 
-              attending: true,
-              dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-            },
-            { 
-              name: 'Carlos Silva', 
-              attending: true,
-              dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-            }
-          ]);
-          setGuestCode('DEMO');
+          // Código no encontrado
+          setIsValidCode(false);
+          setGuests([]);
+          setGuestCode('');
         }
       } catch (error) {
         console.error('Error buscando el código de invitado:', error);
-        // Si hay error, usar invitados de ejemplo
-        setGuests([
-          { 
-            name: 'Sofia Garcia', 
-            attending: true,
-            dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-          },
-          { 
-            name: 'Gonzalo Rodriguez', 
-            attending: true,
-            dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-          },
-          { 
-            name: 'Maria Lopez', 
-            attending: true,
-            dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-          },
-          { 
-            name: 'Carlos Silva', 
-            attending: true,
-            dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-          }
-        ]);
-        setGuestCode('ERROR');
+        setIsValidCode(false);
+        setGuests([]);
+        setGuestCode('');
       }
     } else {
-      // Si no hay código, usar invitados de ejemplo
-      setGuests([
-        { 
-          name: 'Sofia Garcia', 
-          attending: true,
-          dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-        },
-        { 
-          name: 'Gonzalo Rodriguez', 
-          attending: true,
-          dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-        },
-        { 
-          name: 'Maria Lopez', 
-          attending: true,
-          dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-        },
-        { 
-          name: 'Carlos Silva', 
-          attending: true,
-          dietaryRestrictions: { anyFood: false, vegetarian: false, vegan: false, celiac: false }
-        }
-      ]);
-      setGuestCode('DEMO');
+      // Si no hay código, no es válido
+      setIsValidCode(false);
+      setGuests([]);
+      setGuestCode('');
     }
     
     setIsLoading(false);
   }, []);
+
+  const validateAndSetCode = (code: string): boolean => {
+    const guestNames = findGuestsByCode(code);
+    
+    if (guestNames) {
+      const guestList = guestNames.map(name => ({
+        name: name.trim(),
+        attending: true,
+        dietaryRestrictions: {
+          anyFood: false,
+          vegetarian: false,
+          vegan: false,
+          celiac: false
+        }
+      }));
+      
+      setGuests(guestList);
+      setGuestCode(code.toUpperCase());
+      setIsValidCode(true);
+      
+      // Actualizar la URL
+      const newUrl = `${window.location.origin}/${code.toUpperCase()}`;
+      window.history.pushState({}, '', newUrl);
+      
+      return true;
+    } else {
+      setIsValidCode(false);
+      setGuests([]);
+      setGuestCode('');
+      return false;
+    }
+  };
 
   const updateGuestAttendance = (index: number, attending: boolean) => {
     setGuests(prev => prev.map((guest, i) => 
@@ -161,6 +134,8 @@ export const useGuestCode = () => {
     guests,
     guestCode,
     isLoading,
+    isValidCode,
+    validateAndSetCode,
     updateGuestAttendance,
     updateGuestDietaryRestrictions,
     getAttendingCount,

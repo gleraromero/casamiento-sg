@@ -5,44 +5,124 @@ interface GuestList {
 
 export const guestCodes: GuestList[] = [
   {
-    code: 'ABC123',
-    guests: ['Sofía García', 'Gonzalo Rodríguez']
+    code: "GS1",
+    guests: ["Gonzalo Lera Romero", "Sofia Chiavassa"]
   },
   {
-    code: 'DEF456',
-    guests: ['María López', 'Carlos Silva']
+    code: 'S126',
+    guests: ['Sandra Cohen']
   },
   {
-    code: 'GHI789',
-    guests: ['Ana Martínez', 'Pedro González', 'Lucía Fernández']
+    code: 'J613',
+    guests: ['José Lera Romero']
   },
   {
-    code: 'JKL012',
-    guests: ['Roberto Díaz', 'Carmen Ruiz']
+    code: 'LE342',
+    guests: ['Leandro Lera Romero', 'Eli Mickevicius']
   },
   {
-    code: 'MNO345',
-    guests: ['Diego Morales', 'Valentina Herrera']
+    code: 'A109',
+    guests: ['Angela Cohen']
   },
   {
-    code: 'PQR678',
-    guests: ['Fernando Castro', 'Isabella Torres']
+    code: 'JJ670',
+    guests: ['Julieta Sedler', 'Jorge Galarce']
   },
   {
-    code: 'STU901',
-    guests: ['Miguel Vargas', 'Camila Jiménez']
+    code: 'NV534',
+    guests: ['Nicolás Sedler', 'Vanina Colledanchise']
   },
   {
-    code: 'VWX234',
-    guests: ['Alejandro Rojas', 'Daniela Mendoza']
+    code: 'L143',
+    guests: ['Lucas Sedler']
   },
   {
-    code: 'YZA567',
-    guests: ['Gabriel Ortega', 'Natalia Vega']
+    code: 'UM790',
+    guests: ['Uriel Kutner', 'Micaela Fainboim']
   },
   {
-    code: 'BCD890',
-    guests: ['Ricardo Flores', 'Paula Romero']
+    code: 'NJ949',
+    guests: ['Nicolás Scherzer', 'Julia Wobken']
+  },
+  {
+    code: 'AF442',
+    guests: ['Adrián Borowicz', 'Florencia Gallardo']
+  },
+  {
+    code: 'NK901',
+    guests: ['Nicolas Wainer', 'Karen Ridelener']
+  },
+  {
+    code: 'AC801',
+    guests: ['Alejandro Fernandez', 'Carolina']
+  },
+  {
+    code: 'JI247',
+    guests: ['Jonathan Jusid', 'Invitado adicional']
+  },
+  {
+    code: 'KL834',
+    guests: ['Kevin Belter', 'Lorena Rodriguez']
+  },
+  {
+    code: 'BV695',
+    guests: ['Brian Kanelson', 'Valeria Tawil']
+  },
+  {
+    code: 'JL836',
+    guests: ['Juan José Miranda Bront', 'Laura']
+  },
+  {
+    code: 'FA897',
+    guests: ['Federico Pousa', 'Agustina Ciraco']
+  },
+  {
+    code: 'BV382',
+    guests: ['Brian Curcio', 'Veronica Coy']
+  },
+  {
+    code: 'PD925',
+    guests: ['Pablo Brusco', 'Daniela']
+  },
+  {
+    code: 'JI772',
+    guests: ['Juan Bautista Blasco', 'Invitado adicional']
+  },
+  {
+    code: 'MI366',
+    guests: ['Mauro Cipollone', 'Invitado adicional']
+  },
+  {
+    code: 'AI593',
+    guests: ['Agustín Bernardo', 'Invitado adicional']
+  },
+  {
+    code: 'JI919',
+    guests: ['Jonathan Moguilevsky', 'Invitado adicional']
+  },
+  {
+    code: 'PI181',
+    guests: ['Pablo Gotuzzo', 'Invitado adicional']
+  },
+  {
+    code: 'FI346',
+    guests: ['Franco Selleski', 'Invitado adicional']
+  },
+  {
+    code: 'GI189',
+    guests: ['Gonzalo Rizzo', 'Invitado adicional']
+  },
+  {
+    code: 'GE269',
+    guests: ['Gabriel Defagot', 'Eliana Galanternik']
+  },
+  {
+    code: 'VI191',
+    guests: ['Victor Wjugow', 'Invitado adicional']
+  },
+  {
+    code: 'FI522',
+    guests: ['Franco Castelacci', 'Invitado adicional']
   }
 ];
 

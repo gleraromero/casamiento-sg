@@ -11,10 +11,13 @@ import DressCode from './components/DressCode';
 import Gifts from './components/Gifts';
 import RSVP from './components/RSVP';
 import Footer from './components/Footer';
+import CodeEntry from './components/CodeEntry';
+import { useGuestCode } from './hooks/useGuestCode';
 
 const App: React.FC = () => {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const { isValidCode, isLoading, validateAndSetCode } = useGuestCode();
 
   // Inicializar AOS
   useEffect(() => {
@@ -32,6 +35,30 @@ const App: React.FC = () => {
     setShowToast(true);
   };
 
+  const handleCodeValid = (code: string) => {
+    validateAndSetCode(code);
+  };
+
+  // Mostrar loading mientras se valida el código
+  if (isLoading) {
+    return (
+      <div className="min-vh-100 d-flex align-items-center justify-content-center">
+        <div className="text-center">
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Cargando...</span>
+          </div>
+          <p className="mt-3 text-muted">Verificando código de invitado...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Mostrar landing page si el código no es válido
+  if (isValidCode === false) {
+    return <CodeEntry onCodeValid={handleCodeValid} />;
+  }
+
+  // Mostrar contenido principal si el código es válido
   return (
     <>
       <Layout>

@@ -27,11 +27,11 @@ const Countdown: React.FC = () => {
 
   const CountdownItem: React.FC<{ value: number; label: string; delay: number }> = ({ value, label, delay }) => (
     <Col xs={6} sm={3} className="mb-3">
-      <div className="countdown-item" role="region" aria-label={`${value} ${label}`} data-aos="zoom-in" data-aos-delay={delay}>
+      <div className="countdown-item" role="region" aria-label={`${value} ${label}`} data-aos-delay={delay}>
         <div 
           className="countdown-value font-serif text-purple" 
           aria-live="polite"
-          key={value}
+          key={"countdown-" + label}
         >
           {value.toString().padStart(2, '0')}
         </div>
