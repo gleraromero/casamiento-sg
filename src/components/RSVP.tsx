@@ -139,8 +139,8 @@ const RSVP: React.FC = () => {
                 />
               </div>
               
-              {/* Icono central */}
-              <div className="rsvp-icon" data-aos="zoom-in" data-aos-delay="200">
+              {/* Icono central - movido fuera del modal para mejor centrado */}
+              <div className="rsvp-icon-container" data-aos="zoom-in" data-aos-delay="200">
                 <div className="rsvp-icon-circle">
                   <img 
                     src={alianzasImage} 
@@ -343,13 +343,31 @@ const RSVP: React.FC = () => {
                         {/* Campo de comentarios */}
                         <div className="rsvp-inputs">
                           <Form.Group className="mb-4">
+                            <Form.Label className="form-label mb-2" style={{ 
+                              fontFamily: 'Playfair Display, serif',
+                              color: 'var(--color-purple)',
+                              fontSize: '1rem',
+                              fontWeight: '500'
+                            }}>
+                              Comentarios adicionales
+                            </Form.Label>
                             <Form.Control
                               as="textarea"
                               value={comments}
                               onChange={(e) => setComments(e.target.value)}
                               placeholder="Contanos si tenés alguna otra restricción alimentaria"
-                              rows={2}
+                              rows={3}
                               className="rsvp-input"
+                              style={{
+                                border: '2px solid #E0E0E0',
+                                borderRadius: '8px',
+                                backgroundColor: '#FAFAFA',
+                                padding: '12px',
+                                fontSize: '1rem',
+                                fontFamily: 'var(--font-sans)',
+                                resize: 'vertical',
+                                minHeight: '80px'
+                              }}
                             />
                           </Form.Group>
                         </div>
