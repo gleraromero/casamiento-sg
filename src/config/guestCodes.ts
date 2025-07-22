@@ -127,6 +127,110 @@ export const guestCodes: GuestList[] = [
   {
     code: 'AC276',
     guests: ['Agustín Montero', 'Carolina Dalpiaz']
+  },
+  {
+    code: 'MI367',
+    guests: ['Mariana Lirusso', 'Invitado adicional']
+  },
+  {
+    code: 'DM505',
+    guests: ['Daniel Chiavassa', 'María José Matoso']
+  },
+  {
+    code: 'CJ548',
+    guests: ['Camila Chiavassa', 'Juan Gerra']
+  },
+  {
+    code: 'GDL155',
+    guests: ['Guido Accardo', 'Delfina Baravalle', 'Lupe Accardo']
+  },
+  {
+    code: 'LA209',
+    guests: ['Liliana Chiavassa', 'Ángel Scolieri']
+  },
+  {
+    code: 'LA987',
+    guests: ['Lorena Lirusso', 'Andrés Petrone']
+  },
+  {
+    code: 'A344',
+    guests: ['Amanda Cerruti']
+  },
+  {
+    code: 'A228',
+    guests: ['Aldana Flores']
+  },
+  {
+    code: 'I576',
+    guests: ['Ignacio Blazquez']
+  },
+  {
+    code: 'F692',
+    guests: ['Florencia Mariño']
+  },
+  {
+    code: 'P465',
+    guests: ['Paulina Aguirre']
+  },
+  {
+    code: 'G536',
+    guests: ['Gabriela Peralta']
+  },
+  {
+    code: 'CP915',
+    guests: ['Camila Franco', 'Persona invitada']
+  },
+  {
+    code: 'B137',
+    guests: ['Belén Martinez Aspesi']
+  },
+  {
+    code: 'CC039',
+    guests: ['Camila Benitez', 'Carlos']
+  },
+  {
+    code: 'M354',
+    guests: ['Micaela de Rosa']
+  },
+  {
+    code: 'BG488',
+    guests: ['Belén Servin', 'Gabriel Nava']
+  },
+  {
+    code: 'DJ996',
+    guests: ['Dafne Gonzalez', 'Javier Escalante']
+  },
+  {
+    code: 'MT586',
+    guests: ['Mathias Levis', 'Tamara Perez Olescovicz']
+  },
+  {
+    code: 'RP844',
+    guests: ['Rodrigo Vega', 'Persona invitada']
+  },
+  {
+    code: 'LV381',
+    guests: ['Lucas Francioni', 'Victoria']
+  },
+  {
+    code: 'MP101',
+    guests: ['María Candela Bertolucci', 'Persona invitada']
+  },
+  {
+    code: 'EL935',
+    guests: ['Eliana Paz', 'Lucas Meli']
+  },
+  {
+    code: 'JD779',
+    guests: ['Juduth Delvalle', 'Diego Ledesma']
+  },
+  {
+    code: 'AN967',
+    guests: ['Agustina López Lameiro', 'Nicolas Prystupa']
+  },
+  {
+    code: 'SM304',
+    guests: ['Sonia', 'Marcelo']
   }
 ];
 
