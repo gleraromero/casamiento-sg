@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Sparkles, User, Users } from 'lucide-react';
+import { Sparkles, User } from 'lucide-react';
 
 const DressCode: React.FC = () => {
   return (
@@ -74,7 +74,7 @@ const DressCode: React.FC = () => {
                   <Card.Body className="p-5">
                     <div className="dress-card-header text-center mb-4">
                       <div className="dress-icon-wrapper mb-3">
-                        <Users 
+                        <User 
                           size={32} 
                           className="text-purple"
                           style={{ color: 'var(--color-purple-medium)' }}
