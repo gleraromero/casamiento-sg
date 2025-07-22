@@ -221,8 +221,8 @@ export const guestCodes: GuestList[] = [
     guests: ['Eliana Paz', 'Lucas Meli']
   },
   {
-    code: 'JD779',
-    guests: ['Juduth Delvalle', 'Diego Ledesma']
+    code: 'JD767',
+    guests: ['Judith Delvalle', 'Diego Ledesma']
   },
   {
     code: 'AN967',
