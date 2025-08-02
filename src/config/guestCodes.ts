@@ -255,6 +255,14 @@ export const guestCodes: GuestList[] = [
   {
     code: 'LN733',
     guests: ['Luciano Pérez', 'Nayla Fleitas']
+  },
+  {
+    code: 'M239',
+    guests: ['María del Carmen Guerra']
+  },
+  {
+    code: 'G230',
+    guests: ['Graciela Sosa']
   }
 ];
 
