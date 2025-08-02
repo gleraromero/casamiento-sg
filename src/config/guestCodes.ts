@@ -231,6 +231,30 @@ export const guestCodes: GuestList[] = [
   {
     code: 'SM304',
     guests: ['Sonia', 'Marcelo']
+  },
+  {
+    code: 'OS752',
+    guests: ['Oscar Pérez', 'Silvia Castillo']
+  },
+  {
+    code: 'HLI625',
+    guests: ['Hernán Pérez', 'Laura López', 'Isabella Pérez', 'Malena Pérez']
+  },
+  {
+    code: 'CHS752',
+    guests: ['Cintia Pérez', 'Hernán Torres', 'Sofía Torres', 'Santiago Torres']
+  },
+  {
+    code: 'JA871',
+    guests: ['José Pérez', 'Adriana Tondatto']
+  },
+  {
+    code: 'MGF764',
+    guests: ['Mariano Pérez', 'Gimena Palma', 'Francesca Pérez', 'Martina Pérez']
+  },
+  {
+    code: 'LN733',
+    guests: ['Luciano Pérez', 'Nayla Fleitas']
   }
 ];
 
